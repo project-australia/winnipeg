@@ -6,9 +6,7 @@ export const SignInFooter = props => (
   <div>
     <div>
       <p>Forgot your password?</p>
-      <h1 onClick={props.navigateToForgotPassword}>
-        <p>Recover it here</p>
-      </h1>
+      <p onClick={props.navigateToForgotPassword}>Recover it HERE</p>
     </div>
     <FormButton
       label='Create an Account'

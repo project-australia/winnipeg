@@ -9,6 +9,7 @@ export const FormTextInput = (props) => (
       name={props.label}
       value={props.value}
       onChange={props.onChange}
+      autoComplete='off'
     />
   </label>
 )

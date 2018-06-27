@@ -7,11 +7,9 @@ import { clearAlert } from '../../../redux/actions/sync'
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
 import { LoginForm } from '../components/loginForm'
 import { SignInFooter } from '../components/signInFooter'
-import { UserPropTypes } from '../propTypes/user'
+import { UserPropTypes } from '../propTypes/user.type'
 
-const navigateTo = () => {}
-
-class SignInContainer extends Component {
+class SignIn extends Component {
   static propTypes = {
     signIn: func.isRequired,
     redirectTo: string.isRequired,
@@ -45,9 +43,15 @@ class SignInContainer extends Component {
     }
   }
 
+  navigateTo = (route) => () => {
+    window.alert(route)
+  }
+
   footer = (
-    <SignInFooter navigateToForgotPassword={navigateTo}
-      navigateToSignUp={navigateTo()}/>
+    <SignInFooter
+      navigateToForgotPassword={this.navigateTo('Forgot Password')}
+      navigateToSignUp={this.navigateTo('SignUp')}
+    />
   )
 
   onSignIn = async (email, password) => {
@@ -61,8 +65,8 @@ class SignInContainer extends Component {
         footer={this.footer}
         onClick={this.onSignIn}
         alert={this.props.alert}
+        navigateBack={this.navigateTo('Go Back')}
         clearAlerts={this.props.clearAlerts}
-        navigateBack={this.props.navigateBack}
       />
     )
   }
@@ -78,6 +82,6 @@ const mapDispatchToProps = dispatch => ({
   clearAlerts: () => dispatch(clearAlert())
 })
 
-export const SignIn = connect(mapStateToProps, mapDispatchToProps)(
-  SignInContainer
+export const SignInContainer = connect(mapStateToProps, mapDispatchToProps)(
+  SignIn
 )

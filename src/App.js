@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { SignIn } from './modules/authentication/containers/signIn'
+import { SignInContainer } from './modules/authentication/containers/signInContainer'
 
 export class App extends Component {
   render () {
@@ -11,7 +11,7 @@ export class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <SignIn />
+        <SignInContainer />
       </div>
     )
   }

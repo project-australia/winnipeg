@@ -45,7 +45,7 @@ export class LoginForm extends Component {
 
   render () {
     return (
-      <div>
+      <form>
         <FormHeader />
         <FormTextInput
           onChange={this.setEmail}
@@ -63,7 +63,7 @@ export class LoginForm extends Component {
           onClick={this.handleLogin}
         />
         {this.props.footer}
-      </div>
+      </form>
     )
   }
 }
