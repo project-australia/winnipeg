@@ -1,40 +1,25 @@
-import React, { Component } from 'react'
-import { TextInput, StyleSheet } from 'react-native'
-import { Colors } from '../../../constants'
+import React from 'react'
+import { func, string } from 'prop-types'
 
-import { styles } from './styles/formTextInput.style'
-import { styles as loginStyles } from './styles/loginFormStyles'
+export const FormTextInput = (props) => (
+  <label>
+    {props.label}:
+    <input
+      type={props.type}
+      name={props.label}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  </label>
+)
 
-export class FormTextInput extends Component {
-  static defaultProps = {
-    validationCondition: () => true
-  }
+FormTextInput.propTypes = {
+  onChange: func.isRequired,
+  label: string.isRequired,
+  value: string.isRequired,
+  type: string
+}
 
-  focus = () => this.input.focus()
-
-  render () {
-    const isValidInput = this.props.validationCondition(this.props.value)
-    const styleArray = [
-      loginStyles.itemSpacing,
-      styles.textInput,
-      this.props.style
-    ]
-
-    if (!isValidInput) {
-      styleArray.push(styles.invalidInput)
-    }
-
-    return (
-      <TextInput
-        autoCapitalize="words"
-        {...this.props}
-        ref={ref => {
-          this.input = ref
-        }}
-        style={StyleSheet.flatten(styleArray)}
-        selectionColor={Colors.secondary500}
-        underlineColorAndroid={'transparent'}
-      />
-    )
-  }
+FormTextInput.defaultProps = {
+  type: 'text'
 }

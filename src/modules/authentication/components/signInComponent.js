@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { bool, func, shape, string } from 'prop-types'
-import { Text, View, TouchableWithoutFeedback } from 'react-native'
 
-import { styles } from './styles/signInScreen.styles'
 import { LoginForm } from '../components/loginForm'
-import { FormOutlineButton } from '../../shared/components/buttons'
-import { ViewHandlingKeyboard } from '../../shared/components/viewHandlingKeyboard'
+import { FormButton } from '../../shared/components/buttons'
 
-export class SignIn extends Component {
+export class SignInComponent extends Component {
   static propTypes = {
     navigateBack: func.isRequired,
     onButtonPress: func.isRequired,
@@ -17,50 +14,33 @@ export class SignIn extends Component {
     clearAlerts: func.isRequired
   }
 
-  state = { hasKeyboard: false }
-  keyboardDidShow = () => this.setState({ hasKeyboard: true })
-  keyboardDidHide = () => this.setState({ hasKeyboard: false })
-
   renderFooter = () => {
     return (
-      <View>
-        <View style={styles.textRow}>
-          <Text style={styles.footnote}>Forgot your password?</Text>
-          <TouchableWithoutFeedback
-            onPress={this.props.navigateToForgotPassword}
-          >
-            <View>
-              <Text style={styles.footnoteTextButton}>Recover it here</Text>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-        {!this.state.hasKeyboard && (
-          <FormOutlineButton
-            title="Create an Account"
-            onPress={this.props.navigateToSignUp}
-            style={styles.lastItemSpacing}
-          />
-        )}
-      </View>
+      <div>
+        <div>
+          <p>Forgot your password?</p>
+          <h1 onClick={this.props.navigateToForgotPassword}>
+            <p>Recover it here</p>
+          </h1>
+        </div>
+        <FormButton
+          title="Create an Account"
+          onPress={this.props.navigateToSignUp}
+        />
+      </div>
     )
   }
 
   render () {
     return (
-      <ViewHandlingKeyboard
-        onKeyboardShow={this.keyboardDidShow}
-        onKeyboardHide={this.keyboardDidHide}
-        style={{ flex: 1 }}
-      >
-        <LoginForm
-          buttonText="Log In"
-          alert={this.props.alert}
-          footer={this.renderFooter()}
-          clearAlerts={this.props.clearAlerts}
-          onButtonPress={this.props.onButtonPress}
-          navigateBack={this.props.navigateBack}
-        />
-      </ViewHandlingKeyboard>
+      <LoginForm
+        buttonText="Log In"
+        alert={this.props.alert}
+        footer={this.renderFooter()}
+        clearAlerts={this.props.clearAlerts}
+        onButtonPress={this.props.onButtonPress}
+        navigateBack={this.props.navigateBack}
+      />
     )
   }
 }

@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { node, object } from 'prop-types'
 
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
-import { SignInScreen } from '../../authentication/containers/signInScreen'
+import { SignIn } from '../../authentication/containers/signInScreen'
 
 const isUserAuthorized = user => user !== NOT_LOGGED_IN
 
 export const AuthenticationFilter = ({ user, children, navigation }) => {
-  const showLoginScreen = <SignInScreen navigation={navigation} />
+  const showLoginScreen = <SignIn navigation={navigation} />
   return isUserAuthorized(user) ? children : showLoginScreen
 }
 

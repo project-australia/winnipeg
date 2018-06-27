@@ -5,16 +5,10 @@ import { bool, func, shape, string } from 'prop-types'
 import { signInAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
-import { SignIn } from '../components/signIn'
+import { SignInComponent } from '../components/signInComponent'
 import { UserPropTypes } from '../propTypes/user'
 
-const navigateBack = goBack => () => goBack()
-const navigateToSignUp = navigate => () => {
-  navigate('SignUp', {})
-}
-const navigateToForgotPasswordScreen = navigate => () => {
-  navigate('ForgotPassword', {})
-}
+const navigateTo = () => {}
 
 const onSignIn = props => async (email, password) => {
   try {
@@ -48,15 +42,6 @@ class SignInContainer extends Component {
     customRedirectTo: false
   }
 
-  componentDidMount () {
-    const { redirectTo } = this.props.navigation.state.params
-    if (redirectTo) {
-      this.setState({
-        customRedirectTo: redirectTo
-      })
-    }
-  }
-
   componentWillUpdate (nextProps) {
     const isUserLoggedIn = nextProps.user && nextProps.user !== NOT_LOGGED_IN
     if (isUserLoggedIn) {
@@ -69,15 +54,13 @@ class SignInContainer extends Component {
 
   render () {
     return (
-      <SignIn
+      <SignInComponent
         alert={this.props.alert}
         onButtonPress={onSignIn(this.props)}
         clearAlerts={this.props.clearAlerts}
-        navigateBack={navigateBack(this.props.navigation.goBack)}
-        navigateToSignUp={navigateToSignUp(this.props.navigation.navigate)}
-        navigateToForgotPassword={navigateToForgotPasswordScreen(
-          this.props.navigation.navigate
-        )}
+        navigateBack={navigateTo}
+        navigateToSignUp={navigateTo}
+        navigateToForgotPassword={navigateTo}
       />
     )
   }
@@ -93,6 +76,6 @@ const mapDispatchToProps = dispatch => ({
   clearAlerts: () => dispatch(clearAlert())
 })
 
-export const SignInScreen = connect(mapStateToProps, mapDispatchToProps)(
+export const SignIn = connect(mapStateToProps, mapDispatchToProps)(
   SignInContainer
 )
