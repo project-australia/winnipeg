@@ -1,22 +1,15 @@
+import { bool, func, shape, string } from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bool, func, shape, string } from 'prop-types'
 
 import { signInAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
-import { SignInComponent } from '../components/signInComponent'
+import { LoginForm } from '../components/loginForm'
+import { SignInFooter } from '../components/signInFooter'
 import { UserPropTypes } from '../propTypes/user'
 
 const navigateTo = () => {}
-
-const onSignIn = props => async (email, password) => {
-  try {
-    await props.signIn(email, password)
-  } catch (error) {
-    alert('Error happened during sign in', error)
-  }
-}
 
 class SignInContainer extends Component {
   static propTypes = {
@@ -52,15 +45,28 @@ class SignInContainer extends Component {
     }
   }
 
+  footer = (
+    <SignInFooter navigateToForgotPassword={navigateTo}
+      navigateToSignUp={navigateTo()}/>
+  )
+
+  onSignIn = async (email, password) => {
+    try {
+      await this.props.signIn(email, password)
+    } catch (error) {
+      alert('Error happened during sign in', error)
+    }
+  }
+
   render () {
     return (
-      <SignInComponent
+      <LoginForm
+        buttonText="Log In"
         alert={this.props.alert}
-        onButtonPress={onSignIn(this.props)}
+        footer={this.footer}
         clearAlerts={this.props.clearAlerts}
-        navigateBack={navigateTo}
-        navigateToSignUp={navigateTo}
-        navigateToForgotPassword={navigateTo}
+        onClick={this.onSignIn}
+        navigateBack={this.props.navigateBack}
       />
     )
   }

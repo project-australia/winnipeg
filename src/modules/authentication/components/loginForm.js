@@ -8,8 +8,9 @@ import { FormButton } from '../../shared/components/buttons'
 export class LoginForm extends Component {
   static defaultProps = { footer: <div /> }
   static propTypes = {
-    footer: PropTypes.object,
+    footer: PropTypes.node,
     buttonText: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
     alert: PropTypes.shape({
       showAlert: PropTypes.bool.isRequired,
       message: PropTypes.string
@@ -24,8 +25,8 @@ export class LoginForm extends Component {
     loading: false
   }
 
-  setEmail = email => this.setState({ email })
-  setPassword = password => this.setState({ password })
+  setEmail = event => this.setState({ email: event.target.value })
+  setPassword = event => this.setState({ password: event.target.value })
 
   onButtonPress = async () => {
     this.setState({ loading: true })
@@ -66,8 +67,8 @@ export class LoginForm extends Component {
           value={this.state.password}
         />
         <FormButton
-          title={this.props.buttonText}
-          onPress={this.onButtonPress}
+          label={this.props.buttonText}
+          onClick={this.onButtonPress}
         />
         {this.props.footer}
       </div>

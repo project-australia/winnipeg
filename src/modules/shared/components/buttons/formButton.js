@@ -1,23 +1,13 @@
 import React from 'react'
-import { func } from 'prop-types'
+import { func, string } from 'prop-types'
 
-export const FormButton = props => {
-  return (
-    <div
-      onClick={props.onPress}
-    >
-      <div>
-        <p>
-          {props.title}
-        </p>
-        <p>
-          {props.subtitle}
-        </p>
-      </div>
-    </div>
-  )
-}
+export const FormButton = props => (
+  <button type='button' onClick={props.onClick}>
+    {props.label}
+  </button>
+)
 
 FormButton.propTypes = {
-  onPress: func.isRequired
+  onClick: func.isRequired,
+  label: string.isRequired
 }
