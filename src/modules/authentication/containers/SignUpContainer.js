@@ -7,7 +7,7 @@ import { clearAlert } from '../../../redux/actions/sync'
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
 import { SignUpForm } from '../components/signUp'
 
-class SignUpContainer extends Component {
+class SignUp extends Component {
   static navigationOptions = {
     header: null
   }
@@ -64,6 +64,6 @@ const mapDispatchToProps = dispatch => ({
   clearAlerts: () => dispatch(clearAlert())
 })
 
-export const SignUpScreen = connect(mapStateToProps, mapDispatchToProps)(
+export const SignUpContainer = connect(mapStateToProps, mapDispatchToProps)(
   SignUpContainer
 )

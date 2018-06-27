@@ -5,12 +5,10 @@ import { FormButton } from '../../shared/components/buttons'
 import { FormTextInput } from './formTextInput'
 import { LoadingOverlay } from '../../shared/components/loadingOverlay'
 
-// import { styles } from './styles/loginFormStyles'
-import { styles } from './styles/forgotPasswordScreen.styles'
 
 import { Colors } from '../../../constants'
 
-export class ForgotPassword extends React.Component {
+export class ForgotPasswordComponent extends React.Component {
   static propTypes = {
     email: PropTypes.string,
     resetPassword: PropTypes.func.isRequired,

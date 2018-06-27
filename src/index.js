@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './stylesheets/index.css'
 import { Provider } from 'react-redux'
-import { App } from './App'
+import { App } from './modules/App'
 import { setUpConfigs } from './config'
 import { createStore } from './config/redux'
-import registerServiceWorker from './registerServiceWorker'
+import registerServiceWorker from './config/registerServiceWorker'
 
 setUpConfigs()
 

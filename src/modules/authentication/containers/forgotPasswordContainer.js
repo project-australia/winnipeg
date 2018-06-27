@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 
 import { forgotPasswordAction } from '../../../redux/actions'
 import { clearAlert } from '../../../redux/actions/sync'
-import { ForgotPassword } from '../components/forgotPassword'
+import { ForgotPasswordComponent } from '../components/forgotPasswordComponent'
 
-export const ForgotPasswordContainer = props => (
-  <ForgotPassword
+const ForgotPassword = props => (
+  <ForgotPasswordComponent
     resetPassword={props.resetPassword}
     alert={props.alert}
     clearAlerts={props.clearAlerts}
@@ -31,7 +31,7 @@ ForgotPasswordContainer.propTypes = {
   }).isRequired
 }
 
-export const ForgotPasswordScreen = connect(
+export const ForgotPasswordContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ForgotPasswordContainer)
+)(ForgotPassword)
