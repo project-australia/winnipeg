@@ -17,7 +17,7 @@ export class UpdateAddressModal extends Component {
   setStreet = street => this.setState({ street })
   setCity = city => this.setState({ city })
 
-  componentDidMount() {
+  componentDidMount () {
     this.fillForm()
   }
 
@@ -35,7 +35,7 @@ export class UpdateAddressModal extends Component {
     updateUserAddress({ zipCode, street, state, city })
   }
 
-  render() {
+  render () {
     const { onDismiss, visible } = this.props
     const overlayStyle = StyleSheet.flatten([
       styles.overlay,

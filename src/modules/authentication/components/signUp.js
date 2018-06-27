@@ -65,14 +65,14 @@ export class SignUpForm extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const { showAlert, message } = nextProps.alert
     if (showAlert) {
       alert(message)
     }
   }
 
-  render() {
+  render () {
     return (
       <ViewHandlingKeyboard
         onKeyboardShow={this.keyboardDidShow}

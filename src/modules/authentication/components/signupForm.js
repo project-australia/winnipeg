@@ -29,7 +29,7 @@ export class EmailPasswordForm extends Component {
 
   focusInput = inputName => this[inputName].focus()
 
-  render() {
+  render () {
     return (
       <View style={styles.signUpContainer}>
         <FormHeader />

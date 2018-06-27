@@ -74,7 +74,7 @@ export class ViewHandlingKeyboard extends PureComponent {
   keyboardDidShow = () => this.props.onKeyboardShow()
   keyboardDidHide = () => this.props.onKeyboardHide()
 
-  render() {
+  render () {
     const { height } = this.state
     const { children, style, ...rest } = this.props
     return (

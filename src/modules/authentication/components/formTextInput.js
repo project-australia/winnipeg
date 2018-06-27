@@ -12,7 +12,7 @@ export class FormTextInput extends Component {
 
   focus = () => this.input.focus()
 
-  render() {
+  render () {
     const isValidInput = this.props.validationCondition(this.props.value)
     const styleArray = [
       loginStyles.itemSpacing,

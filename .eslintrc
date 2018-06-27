@@ -13,7 +13,8 @@
     "react/jsx-uses-vars": "error"
   },
   "globals": {
-    "localStorage": true
+    "localStorage": true,
+    "alert": true
   },
   "extends": ["standard"],
   "plugins": [ "flowtype", "react" ]

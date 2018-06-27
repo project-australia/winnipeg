@@ -20,7 +20,7 @@ class AddressModalContainer extends Component {
 
   state = { keyboardHeight: 0 }
 
-  componentWillMount() {
+  componentWillMount () {
     if (Platform.OS === 'ios') {
       this.keyboardWillShowListener = Keyboard.addListener(
         'keyboardWillShow',
@@ -33,7 +33,7 @@ class AddressModalContainer extends Component {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (Platform.OS === 'ios') {
       this.keyboardWillShowListener.remove()
       this.keyboardWillHideListener.remove()
@@ -62,7 +62,7 @@ class AddressModalContainer extends Component {
     this.props.onShowModal()
   }
 
-  render() {
+  render () {
     return (
       <UpdateAddressModal
         onDismiss={this.hideModal}

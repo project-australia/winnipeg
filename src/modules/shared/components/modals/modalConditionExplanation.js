@@ -15,7 +15,7 @@ export const ModalConditionExplanation = ({ isVisible, onCancel }) => (
     <ScrollView>
       <Text style={styles.firstTitle}>New</Text>
       <Text style={styles.text}>
-        Just like it sounds. A brand-new, unused, unread copy in perfect condition. The dust cover and original protective plastic wrapping are intact. All supplementary materials are included and all access codes for electronic material, if applicable, are valid and/or in working condition. 
+        Just like it sounds. A brand-new, unused, unread copy in perfect condition. The dust cover and original protective plastic wrapping are intact. All supplementary materials are included and all access codes for electronic material, if applicable, are valid and/or in working condition.
       </Text>
 
       <Text style={styles.firstTitle}>​Used - Like New</Text>

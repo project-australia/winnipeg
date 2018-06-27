@@ -45,7 +45,7 @@ export class SignIn extends Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <ViewHandlingKeyboard
         onKeyboardShow={this.keyboardDidShow}

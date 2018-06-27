@@ -6,12 +6,12 @@ export class WebView extends React.PureComponent {
     uri: null
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.setState({ uri: this.props.uri })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { uri } = this.props.navigation.state.params
 
     if (uri) {
@@ -19,7 +19,7 @@ export class WebView extends React.PureComponent {
     }
   }
 
-  render() {
+  render () {
     const { uri } = this.state
 
     if (!uri) {

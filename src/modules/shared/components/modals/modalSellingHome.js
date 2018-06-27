@@ -10,7 +10,7 @@ export class ModalSellingHome extends Component {
     inputValue: ''
   }
 
-  componentWillMount() {
+  componentWillMount () {
     if (Platform.OS === 'ios') {
       this.keyboardWillShowListener = Keyboard.addListener(
         'keyboardWillShow',
@@ -23,7 +23,7 @@ export class ModalSellingHome extends Component {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (Platform.OS === 'ios') {
       this.keyboardWillShowListener.remove()
       this.keyboardWillHideListener.remove()
@@ -52,7 +52,7 @@ export class ModalSellingHome extends Component {
     )
   }
 
-  render() {
+  render () {
     const { onConfirm, onDismiss, visible, title } = this.props
     const overlayStyle = StyleSheet.flatten([
       styles.overlay,

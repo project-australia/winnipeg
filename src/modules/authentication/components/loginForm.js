@@ -40,7 +40,7 @@ export class LoginForm extends Component {
     this.setState({ loading: false })
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const { showAlert, message } = nextProps.alert
     if (showAlert) {
       // alert(message)
@@ -58,7 +58,7 @@ export class LoginForm extends Component {
 
   focusPassword = () => this.passwordInput.focus()
 
-  render() {
+  render () {
     return (
       <LoadingOverlay style={styles.screen} isLoading={this.state.loading}>
         <FormHeader />

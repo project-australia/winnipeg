@@ -12,7 +12,7 @@ export class ModalWithInputWallet extends Component {
     venmoAccount: ''
   }
 
-  componentWillMount() {
+  componentWillMount () {
     if (Platform.OS === 'ios') {
       this.keyboardWillShowListener = Keyboard.addListener(
         'keyboardWillShow',
@@ -30,7 +30,7 @@ export class ModalWithInputWallet extends Component {
   //  paypalAccount ? this.setState({ paypalAccount }) : null
   // }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (Platform.OS === 'ios') {
       this.keyboardWillShowListener.remove()
       this.keyboardWillHideListener.remove()
@@ -72,7 +72,7 @@ export class ModalWithInputWallet extends Component {
     this.props.onConfirm({paypalAccount, venmoAccount})
   }
 
-  render() {
+  render () {
     const { onDismiss, visible, title } = this.props
     const overlayStyle = StyleSheet.flatten([
       styles.overlay,

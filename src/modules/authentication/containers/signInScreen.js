@@ -57,7 +57,7 @@ class SignInContainer extends Component {
     }
   }
 
-  componentWillUpdate(nextProps) {
+  componentWillUpdate (nextProps) {
     const isUserLoggedIn = nextProps.user && nextProps.user !== NOT_LOGGED_IN
     if (isUserLoggedIn) {
       if (this.state.customRedirectTo) {
@@ -67,7 +67,7 @@ class SignInContainer extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <SignIn
         alert={this.props.alert}

@@ -2,6 +2,18 @@
   "name": "winnipeg",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm-run-all -p build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint:check": "eslint ./src/",
+    "lint:fix": "eslint --fix ./src/",
+    "production": "http-server ./build/"
+  },
   "dependencies": {
     "moment": "2.21.0",
     "node-sass-chokidar": "0.0.3",
@@ -48,17 +60,5 @@
     "redux-mock-store": "1.4.0",
     "redux-testkit": "1.0.6",
     "standard": "10.0.3"
-  },
-  "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build": "npm-run-all -p build-css && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint:check": "eslint ./src/ ./tests/",
-    "lint:fix": "eslint --fix ./src/ ./tests/",
-    "production": "http-server ./build/"
   }
 }
