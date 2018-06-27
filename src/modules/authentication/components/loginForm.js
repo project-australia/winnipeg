@@ -28,29 +28,20 @@ export class LoginForm extends Component {
   setEmail = event => this.setState({ email: event.target.value })
   setPassword = event => this.setState({ password: event.target.value })
 
-  onButtonPress = async () => {
+  handleLogin = async () => {
     this.setState({ loading: true })
     const { email, password } = this.state
-    await this.props.onButtonPress(email, password)
+    await this.props.onClick(email, password)
     this.setState({ loading: false })
   }
 
   componentWillReceiveProps (nextProps) {
     const { showAlert, message } = nextProps.alert
     if (showAlert) {
-      window.alert(
-        'Reset Password',
-        message,
-        [
-          { text: 'Ok', onPress: () => {}, style: 'cancel' }
-        ],
-        { cancelable: true }
-      )
+      window.alert(message)
       this.props.clearAlerts()
     }
   }
-
-  focusPassword = () => this.passwordInput.focus()
 
   render () {
     return (
@@ -64,11 +55,12 @@ export class LoginForm extends Component {
         <FormTextInput
           onChange={this.setPassword}
           label="Password"
+          type="password"
           value={this.state.password}
         />
         <FormButton
           label={this.props.buttonText}
-          onClick={this.onButtonPress}
+          onClick={this.handleLogin}
         />
         {this.props.footer}
       </div>

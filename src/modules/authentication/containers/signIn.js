@@ -51,21 +51,17 @@ class SignInContainer extends Component {
   )
 
   onSignIn = async (email, password) => {
-    try {
-      await this.props.signIn(email, password)
-    } catch (error) {
-      alert('Error happened during sign in', error)
-    }
+    await this.props.signIn(email, password)
   }
 
   render () {
     return (
       <LoginForm
-        buttonText="Log In"
-        alert={this.props.alert}
+        buttonText='Log In'
         footer={this.footer}
-        clearAlerts={this.props.clearAlerts}
         onClick={this.onSignIn}
+        alert={this.props.alert}
+        clearAlerts={this.props.clearAlerts}
         navigateBack={this.props.navigateBack}
       />
     )

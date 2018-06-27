@@ -1,19 +1,9 @@
-
-// TODO: GRAB THIS FROM .ENV
-const Config = {}
-
 // TODO: CHANGE TO PAYPAL WEB SDK
 const PayPal = {}
+
 let wasInitiallized = false
 
-export const initializePaypalSDK = async () => {
-  try {
-    await PayPal.initialize(PayPal[Config.PAYPAL_ENVIRONMENT], Config.PAYPAY_CLIENT_ID)
-    wasInitiallized = true
-  } catch (e) {
-    console.log('Error during initializing paypal')
-  }
-}
+export const initializePaypalSDK = async () => {}
 
 export const pay = async (
   amount,

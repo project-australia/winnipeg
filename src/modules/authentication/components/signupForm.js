@@ -83,7 +83,7 @@ export class EmailPasswordForm extends Component {
           <FormTextInput
             autoCapitalize="none"
             onChangeText={this.setReferredBy}
-            onSubmitEditing={this.props.onButtonPress}
+            onSubmitEditing={this.props.handleLogin}
             value={this.props.form.referredBy}
             placeholder="Rep's email (optional)"
             ref={ref => {
@@ -96,7 +96,7 @@ export class EmailPasswordForm extends Component {
           <View style={styles.buttonsSpacing}>
             <FormButton
               title={'Create your account'}
-              onPress={this.props.onButtonPress}
+              onPress={this.props.handleLogin}
               style={styles.itemSpacing}
             />
             <FormOutlineButton
