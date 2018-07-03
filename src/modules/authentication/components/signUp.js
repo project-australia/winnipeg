@@ -74,23 +74,14 @@ export class SignUpForm extends Component {
 
   render () {
     return (
-      <ViewHandlingKeyboard
-        onKeyboardShow={this.keyboardDidShow}
-        onKeyboardHide={this.keyboardDidHide}
-        style={{ flex: 1 }}
-      >
-        <LoadingOverlay style={styles.container} isLoading={this.state.loading}>
-          <EmailPasswordForm
-            hasKeyboard={this.state.hasKeyboard}
-            form={this.state}
-            onChange={this.onFormChange}
-            clearAlerts={this.props.clearAlerts}
-            onButtonPress={this.doSignUp}
-            navigateToSignIn={this.props.navigateToSignIn}
-          />
-          <BackButtonFloating onPress={this.props.navigateBack} />
-        </LoadingOverlay>
-      </ViewHandlingKeyboard>
+      <EmailPasswordForm
+        hasKeyboard={this.state.hasKeyboard}
+        form={this.state}
+        onChange={this.onFormChange}
+        clearAlerts={this.props.clearAlerts}
+        onButtonPress={this.doSignUp}
+        navigateToSignIn={this.props.navigateToSignIn}
+      />
     )
   }
 }

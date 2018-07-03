@@ -50,6 +50,8 @@ export const currentUserUid = async () => {
   return user.uid
 }
 
+export const onAuthStateChanged = (callback) => Firebase.auth().onAuthStateChanged(callback)
+
 export const sendEmailVerification = async user => user.sendEmailVerification()
 export const getUserToken = async () => Firebase.auth().currentUser.getIdToken()
 export const sendPasswordResetEmail = async email =>

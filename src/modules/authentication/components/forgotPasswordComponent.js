@@ -5,7 +5,6 @@ import { FormButton } from '../../shared/components/buttons'
 import { FormTextInput } from './formTextInput'
 import { LoadingOverlay } from '../../shared/components/loadingOverlay'
 
-
 import { Colors } from '../../../constants'
 
 export class ForgotPasswordComponent extends React.Component {

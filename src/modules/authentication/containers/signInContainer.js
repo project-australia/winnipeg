@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { signInAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
+import { userSelector } from '../../../redux/selectors/authenticationSelectors'
 import { LoginForm } from '../components/loginForm'
 import { SignInFooter } from '../components/signInFooter'
 import { UserPropTypes } from '../propTypes/user.type'
@@ -39,7 +40,9 @@ class SignIn extends Component {
       if (this.state.customRedirectTo) {
         return nextProps.navigation.navigate(this.state.customRedirectTo)
       }
-      nextProps.navigation.navigate(nextProps.redirectTo)
+
+      // TODO: If user is logged in redirect them
+      //nextProps.navigation.navigate(nextProps.redirectTo)
     }
   }
 
@@ -74,7 +77,7 @@ class SignIn extends Component {
 
 const mapStateToProps = state => ({
   alert: state.authentication.alert,
-  user: state.authentication.user
+  user: userSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({

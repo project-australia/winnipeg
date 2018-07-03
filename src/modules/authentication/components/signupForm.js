@@ -31,7 +31,7 @@ export class EmailPasswordForm extends Component {
 
   render () {
     return (
-      <View style={styles.signUpContainer}>
+      <div>
         <FormHeader />
         <ScrollView>
           <FormTextInput
@@ -106,7 +106,7 @@ export class EmailPasswordForm extends Component {
             />
           </View>
         )}
-      </View>
+      </div>
     )
   }
 }
