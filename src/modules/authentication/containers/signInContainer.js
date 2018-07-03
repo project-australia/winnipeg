@@ -42,7 +42,7 @@ class SignIn extends Component {
       }
 
       // TODO: If user is logged in redirect them
-      //nextProps.navigation.navigate(nextProps.redirectTo)
+      // nextProps.navigation.navigate(nextProps.redirectTo)
     }
   }
 

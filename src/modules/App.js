@@ -5,7 +5,7 @@ import { withAuthentication } from './shared/highOrderComponents/authenticationH
 
 const TestComponent = () => (
   <p>Logged In</p>
-);
+)
 
 export class App extends Component {
   render () {

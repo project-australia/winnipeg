@@ -25,7 +25,17 @@ export function signInAction (email, password) {
   return async dispatch => {
     try {
       const firebaseUser = await signInWithEmailAndPassword(email, password)
-      const user = await getUserProfile(firebaseUser.uid)
+      getProfileAndUpdateUserAction(firebaseUser.uid)
+    } catch (error) {
+      dispatch(alertAction(error))
+    }
+  }
+}
+
+export function getProfileAndUpdateUserAction (uid) {
+  return async dispatch => {
+    try {
+      const user = await getUserProfile(uid)
       dispatch(updateUserProfile(user))
     } catch (error) {
       dispatch(alertAction(error))
