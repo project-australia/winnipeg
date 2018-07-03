@@ -1,11 +1,13 @@
 import { connect } from 'react-redux'
 import { branch, renderComponent, compose, lifecycle } from 'recompose'
 import { getProfileAndUpdateUserAction } from '../../../redux/actions/async'
+import { updateUserProfile } from '../../../redux/actions/sync/authenticationActions'
+import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
 import { userSelector } from '../../../redux/selectors/authenticationSelectors'
 import { onAuthStateChanged } from '../../../services/firebase/authentication'
 import { SignInContainer } from '../../authentication/containers/signInContainer'
 
-const isUnauthorized = props => props.user === null
+const isUnauthorized = props => props.user === null || Object.is(props.user, NOT_LOGGED_IN)
 
 const renderSignInsteadOfComponentIfUserIsNotAuth = branch(
   isUnauthorized,
@@ -15,7 +17,14 @@ const renderSignInsteadOfComponentIfUserIsNotAuth = branch(
 const injectAuthStateListener = lifecycle({
   state: { unsubscriber: null },
   componentDidMount () {
-    const unsubscriber = onAuthStateChanged((user) => { this.props.updateUser(user.uid) })
+    const unsubscriber = onAuthStateChanged((user) => {
+      if (user && user.uid !== this.props.user.id) {
+        console.log('Firebase auth state has changed to logged in.', user.email)
+        this.props.getProfileAndUpdate(user.uid)
+      } else if (user === null) {
+        this.props.updateUser(NOT_LOGGED_IN)
+      }
+    })
     this.setState({ unsubscriber })
   },
   componentWillUnmount () {
@@ -30,7 +39,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = ({
-  updateUser: getProfileAndUpdateUserAction
+  getProfileAndUpdate: getProfileAndUpdateUserAction,
+  updateUser: updateUserProfile
 })
 
 export const withAuthentication = compose(

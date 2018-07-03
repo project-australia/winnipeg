@@ -1,22 +1,13 @@
 import Firebase from 'firebase'
-const USER_UID_KEY = 'user'
-
-const AsyncStorage = {
-  setItem: () => {},
-  getItem: () => {}
-}
 
 export const signInWithEmailAndPassword = async (email, password) => {
-  await Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.LOCAL) // TODO: Nao ta
-  // funcionando, por isso to usando async storage
+  await Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.LOCAL)
   const firebaseUser = await Firebase.auth().signInWithEmailAndPassword(
     email,
     password
   )
 
-  const user = await validatedUser(firebaseUser)
-  await AsyncStorage.setItem(USER_UID_KEY, user.uid)
-  return user
+  return validatedUser(firebaseUser)
 }
 
 export const createUserWithEmailAndPassword = async (email, password) => {
@@ -36,22 +27,15 @@ const validatedUser = firebaseUser => {
 
 export const logOut = async () => {
   await Firebase.auth().signOut()
-  await AsyncStorage.removeItem(USER_UID_KEY)
 }
 
 export const currentUserUid = async () => {
   const currentUser = await Firebase.auth().currentUser
-  let user = validatedUser(currentUser)
-
-  if (!user) {
-    return AsyncStorage.getItem(USER_UID_KEY)
-  }
-
+  const user = validatedUser(currentUser)
   return user.uid
 }
 
 export const onAuthStateChanged = (callback) => Firebase.auth().onAuthStateChanged(callback)
-
 export const sendEmailVerification = async user => user.sendEmailVerification()
 export const getUserToken = async () => Firebase.auth().currentUser.getIdToken()
 export const sendPasswordResetEmail = async email =>
