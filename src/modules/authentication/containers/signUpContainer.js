@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 import { signUpAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
-import { SignUpForm } from '../components/signUp'
+import { SignUp } from '../components/signUp'
 
-class SignUp extends Component {
+class SignUpPresenter extends Component {
   static navigationOptions = {
     header: null
   }
@@ -42,7 +42,7 @@ class SignUp extends Component {
 
   render () {
     return (
-      <SignUpForm
+      <SignUp
         buttonText="SIGN UP"
         alert={this.props.alert}
         clearAlerts={this.props.clearAlerts}
@@ -65,5 +65,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export const SignUpContainer = connect(mapStateToProps, mapDispatchToProps)(
-  SignUp
+  SignUpPresenter
 )

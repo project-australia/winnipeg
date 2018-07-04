@@ -19,13 +19,11 @@ export class EmailPasswordForm extends Component {
     clearAlerts: func.isRequired
   }
 
-  setUserName = name => this.props.onChange({ name })
-  setEmail = email => this.props.onChange({ email })
-  setPassword = password => this.props.onChange({ password })
-  setSchool = school => this.props.onChange({ school })
-  setReferredBy = referredBy => this.props.onChange({ referredBy })
-
-  focusInput = inputName => this[inputName].focus()
+  setUserName = event => this.props.onChange({ name: event.target.value })
+  setEmail = event => this.props.onChange({ email: event.target.value })
+  setPassword = event => this.props.onChange({ password: event.target.value })
+  setSchool = event => this.props.onChange({ school: event.target.value })
+  setReferredBy = event => this.props.onChange({ referredBy: event.target.value })
 
   render () {
     return (

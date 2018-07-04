@@ -22,7 +22,7 @@ const extractSignUpFormFromState = form => {
   return new SignUpRequest(email, password, user)
 }
 
-export class SignUpForm extends Component {
+export class SignUp extends Component {
   static propTypes = {
     signUpUser: func.isRequired,
     navigateToSignIn: func.isRequired,
@@ -37,12 +37,8 @@ export class SignUpForm extends Component {
     school: '',
     password: '',
     loading: false,
-    referredBy: '',
-    hasKeyboard: false
+    referredBy: ''
   }
-
-  keyboardDidShow = () => this.setState({ hasKeyboard: true })
-  keyboardDidHide = () => this.setState({ hasKeyboard: false })
 
   onFormChange = value => {
     this.setState(value)
@@ -70,7 +66,6 @@ export class SignUpForm extends Component {
   render () {
     return (
       <EmailPasswordForm
-        hasKeyboard={this.state.hasKeyboard}
         form={this.state}
         onChange={this.onFormChange}
         clearAlerts={this.props.clearAlerts}
