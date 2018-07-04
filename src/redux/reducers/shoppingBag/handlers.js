@@ -1,5 +1,5 @@
 import { reject, cloneDeep } from 'lodash'
-import { SHOPPING_BAG_TYPES } from '../../../domain/ShoppingBagItem'
+import { SHOPPING_BAG_TYPES } from '../../../domain/shoppingBagItem'
 import { EMPTY_SHOPPING_BAG } from './constants'
 const sameItem = item => element => element.equals(item)
 const hasBookType = type => element => element.type === SHOPPING_BAG_TYPES[type]

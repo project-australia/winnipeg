@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { SignInContainer } from './authentication/containers/signInContainer'
-import { SignUpContainer } from './authentication/containers/SignUpContainer'
+import { SignUpContainer } from './authentication/containers/signUpContainer'
 import { Home } from './home/home'
 
 export const ROUTES = {

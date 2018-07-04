@@ -7,7 +7,7 @@ import {
 import {
   SHOPPING_BAG_TYPES,
   ShoppingBagItem
-} from '../../../domain/ShoppingBagItem'
+} from '../../../domain/shoppingBagItem'
 const { BUY, RENT, SELL } = SHOPPING_BAG_TYPES
 
 export const cleanWholeShoppingBag = () => ({ type: CLEAN_SHOPPING_BAG })

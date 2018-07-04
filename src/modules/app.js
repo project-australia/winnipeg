@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
 import { logOutAction } from '../redux/actions/async'
 import { userSelector } from '../redux/selectors/authenticationSelectors'
-import '../stylesheets/App.css'
-import { SignUpContainer } from './authentication/containers/SignUpContainer'
-import { ROUTES } from './Router'
+import '../stylesheets/app.css'
+import { SignUpContainer } from './authentication/containers/signUpContainer'
+import { ROUTES } from './router'
 import { withAuthentication } from './shared/highOrderComponents/authenticationHOC'
 
 const TestComponent = (props) => (
@@ -27,9 +27,9 @@ class AppContainer extends Component {
         <LoggedInComponent email={this.props.user.email} />
         {SignUpComponent}
         <h3 onClick={this.props.logOut}> Click to Log out </h3>
-        <Link to={ROUTES.SIGN_IN}>SIGN IN</Link>
-        <Link to={ROUTES.SIGN_IN}>SIGN UP</Link>
-        <Link to={ROUTES.HOME}>HOME</Link>
+        <Link to={ROUTES.SIGN_IN}>SIGN IN </Link>
+        <Link to={ROUTES.SIGN_UP}>SIGN UP </Link>
+        <Link to={ROUTES.HOME}>HOME </Link>
       </div>
     )
   }

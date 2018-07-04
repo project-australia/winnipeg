@@ -1,6 +1,6 @@
 import Axios from 'axios'
-import { Address } from '../../domain/Address'
-import { User } from '../../domain/User'
+import { Address } from '../../domain/address'
+import { User } from '../../domain/user'
 
 const SIGNUP_ERROR_MESSAGE =
   'Something wrong has happened on your sign up, please try it again in a few minutes'

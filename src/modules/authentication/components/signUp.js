@@ -1,8 +1,8 @@
 import { bool, func, shape, string } from 'prop-types'
 import React, { Component } from 'react'
-import { SignUpRequest } from '../../../domain/SignUpRequest'
+import { SignUpRequest } from '../../../domain/signUpRequest'
 
-import { User } from '../../../domain/User'
+import { User } from '../../../domain/user'
 import { EmailPasswordForm } from '../components/signupForm'
 
 const extractSignUpFormFromState = form => {

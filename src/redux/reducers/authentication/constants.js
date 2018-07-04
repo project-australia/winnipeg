@@ -1,4 +1,4 @@
-import { User } from '../../../domain/User'
+import { User } from '../../../domain/user'
 
 export const NOT_LOGGED_IN = new User()
 

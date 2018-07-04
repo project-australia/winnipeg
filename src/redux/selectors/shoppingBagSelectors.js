@@ -1,4 +1,4 @@
-import { SHOPPING_BAG_TYPES } from '../../domain/ShoppingBagItem'
+import { SHOPPING_BAG_TYPES } from '../../domain/shoppingBagItem'
 const { BUY, RENT, SELL } = SHOPPING_BAG_TYPES
 
 export const buyingItems = ({ shoppingBag }) =>
