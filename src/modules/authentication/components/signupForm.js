@@ -29,7 +29,7 @@ export class EmailPasswordForm extends Component {
 
   render () {
     return (
-      <div>
+      <form>
         <FormHeader />
         <div>
           <FormTextInput
@@ -75,7 +75,7 @@ export class EmailPasswordForm extends Component {
             />
           </div>
         )}
-      </div>
+      </form>
     )
   }
 }

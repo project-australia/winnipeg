@@ -47,4 +47,8 @@ export class User {
   wallet
   orders
   network
+
+  isLoggedIn() {
+    return !!this.id
+  }
 }
