@@ -1,17 +1,21 @@
+import { createBrowserHistory } from 'history'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './stylesheets/index.css'
 import { Provider } from 'react-redux'
-import { App } from './modules/App'
+import { Router } from 'react-router-dom'
 import { setUpConfigs } from './config'
 import { createStore } from './config/redux'
 import registerServiceWorker from './config/registerServiceWorker'
+import { App } from './modules/App'
+import './stylesheets/index.css'
 
 setUpConfigs()
 
 const element = (
   <Provider store={createStore()}>
-    <App />
+    <Router history={createBrowserHistory({})}>
+      <App />
+    </Router>
   </Provider>
 )
 

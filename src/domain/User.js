@@ -48,7 +48,7 @@ export class User {
   orders
   network
 
-  isLoggedIn() {
+  isLoggedIn () {
     return !!this.id
   }
 }
