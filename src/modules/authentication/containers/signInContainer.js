@@ -53,7 +53,7 @@ class SignIn extends Component {
   footer = (
     <SignInFooter
       navigateToForgotPassword={this.navigateTo('Forgot Password')}
-      navigateToSignUp={this.navigateTo('SignUp')}
+      navigateToSignUp={this.navigateTo('SignUpForm')}
     />
   )
 
