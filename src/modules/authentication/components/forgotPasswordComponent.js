@@ -1,11 +1,8 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 import { FormButton } from '../../shared/components/buttons'
 import { FormTextInput } from './formTextInput'
-import { LoadingOverlay } from '../../shared/components/loadingOverlay'
-
-import { Colors } from '../../../constants'
 
 export class ForgotPasswordComponent extends React.Component {
   static propTypes = {
@@ -36,27 +33,17 @@ export class ForgotPasswordComponent extends React.Component {
 
   render () {
     return (
-      <LoadingOverlay isLoading={this.state.loading} style={styles.screen}>
+      <div>
         <FormTextInput
-          autoCapitalize="none"
-          autoFocus
-          blurOnSubmit={false}
-          keyboardType="email-address"
-          onChangeText={this.setEmail}
-          onSubmitEditing={this.onButtonPress}
-          placeholder="Your email address"
-          returnKeyType={'done'}
-          selectionColor={Colors.secondary500}
-          style={styles.topSpacing}
+          onChange={this.setEmail}
+          label="Your email address"
           value={this.state.email}
         />
         <FormButton
-          title="Reset Password"
-          style={styles.loginButton}
-          onPress={this.onButtonPress}
-          style={styles.itemSpacing}
+          label="Reset Password"
+          onClick={this.onButtonPress}
         />
-      </LoadingOverlay>
+      </div>
     )
   }
 }

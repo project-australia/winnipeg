@@ -1,10 +1,9 @@
-import { connect } from 'react-redux'
-import React, { Component } from 'react'
 import { bool, func, shape, string } from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import { signUpAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
-import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
 import { SignUpForm } from '../components/signUp'
 
 class SignUp extends Component {
@@ -22,10 +21,11 @@ class SignUp extends Component {
   }
 
   componentWillUpdate (nextProps) {
-    const isUserLoggedIn = nextProps.user && nextProps.user !== NOT_LOGGED_IN
-    if (isUserLoggedIn) {
-      nextProps.navigation.navigate('Home')
-    }
+    // TODO: Rever esquema de navegaçao.
+    // const isUserLoggedIn = nextProps.user && nextProps.user !== NOT_LOGGED_IN
+    // if (isUserLoggedIn) {
+    //   nextProps.navigation.navigate('Home')
+    // }
   }
 
   onSignUp = async signUpForm => {
@@ -65,5 +65,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export const SignUpContainer = connect(mapStateToProps, mapDispatchToProps)(
-  SignUpContainer
+  SignUp
 )

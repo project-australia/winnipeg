@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
   clearAlerts: () => dispatch(clearAlert())
 })
 
-ForgotPasswordContainer.propTypes = {
+ForgotPassword.propTypes = {
   resetPassword: PropTypes.func.isRequired,
   alert: PropTypes.shape({
     showAlert: PropTypes.bool.isRequired,

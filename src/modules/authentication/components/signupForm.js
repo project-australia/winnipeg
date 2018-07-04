@@ -1,11 +1,9 @@
 import PropTypes, { func, string } from 'prop-types'
 import React, { Component } from 'react'
-import { View, ScrollView } from 'react-native'
-import { FormButton, FormOutlineButton } from '../../shared/components/buttons'
+import { FormButton } from '../../shared/components/buttons'
 import { hasMinimumSizeOf, isNotEmpty, isValidEmail } from '../validation'
 import { FormHeader } from './formHeader'
 import { FormTextInput } from './formTextInput'
-import { styles } from './styles/loginFormStyles'
 
 export const signupFormType = PropTypes.shape({
   name: string.isRequired,
@@ -33,78 +31,49 @@ export class EmailPasswordForm extends Component {
     return (
       <div>
         <FormHeader />
-        <ScrollView>
+        <div>
           <FormTextInput
-            autoFocus
-            onChangeText={this.setUserName}
-            onSubmitEditing={() => this.focusInput('emailInput')}
-            placeholder="Name"
-            returnKeyType={'next'}
+            onChange={this.setUserName}
+            label="Name"
             validationCondition={isNotEmpty}
             value={this.props.form.name}
           />
           <FormTextInput
-            autoCapitalize="none"
-            keyboardType="email-address"
-            onChangeText={this.setEmail}
-            onSubmitEditing={() => this.focusInput('passwordInput')}
-            placeholder="Email address"
-            ref={ref => {
-              this.emailInput = ref
-            }}
-            returnKeyType={'next'}
-            style={styles.itemSpacing}
+            onChange={this.setEmail}
+            label="Email address"
             validationCondition={isValidEmail}
             value={this.props.form.email}
           />
           <FormTextInput
             validationCondition={hasMinimumSizeOf(6)}
-            onChangeText={this.setPassword}
-            onSubmitEditing={() => this.focusInput('schoolInput')}
+            onChange={this.setPassword}
             value={this.props.form.password}
-            placeholder="Password"
-            ref={ref => {
-              this.passwordInput = ref
-            }}
-            returnKeyType={'next'}
-            secureTextEntry
+            label="Password"
+            type="password"
           />
           <FormTextInput
             validationCondition={isNotEmpty}
-            onChangeText={this.setSchool}
-            onSubmitEditing={() => this.focusInput('repInput')}
+            onChange={this.setSchool}
             value={this.props.form.school}
-            placeholder="School"
-            ref={ref => {
-              this.schoolInput = ref
-            }}
-            returnKeyType={'next'}
+            label="School"
           />
           <FormTextInput
-            autoCapitalize="none"
-            onChangeText={this.setReferredBy}
-            onSubmitEditing={this.props.handleLogin}
+            onChange={this.setReferredBy}
             value={this.props.form.referredBy}
-            placeholder="Rep's email (optional)"
-            ref={ref => {
-              this.repInput = ref
-            }}
-            returnKeyType={'done'}
+            label="Rep's email (optional)"
           />
-        </ScrollView>
+        </div>SignUpContainer
         {!this.props.hasKeyboard && (
-          <View style={styles.buttonsSpacing}>
+          <div>
             <FormButton
-              title={'Create your account'}
-              onPress={this.props.handleLogin}
-              style={styles.itemSpacing}
+              label={'Create your account'}
+              onClick={this.props.handleLogin}
             />
-            <FormOutlineButton
-              title="Log in instead"
-              onPress={this.props.navigateToSignIn}
-              style={styles.lastItemSpacing}
+            <FormButton
+              label="Log in instead"
+              onClick={this.props.navigateToSignIn}
             />
-          </View>
+          </div>
         )}
       </div>
     )

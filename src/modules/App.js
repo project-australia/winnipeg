@@ -4,6 +4,7 @@ import logo from '../assets/images/logo.svg'
 import '../stylesheets/App.css'
 import { logOutAction } from '../redux/actions/async'
 import { userSelector } from '../redux/selectors/authenticationSelectors'
+import { SignUpContainer } from './authentication/containers/SignUpContainer'
 import { withAuthentication } from './shared/highOrderComponents/authenticationHOC'
 
 const TestComponent = (props) => (
@@ -20,6 +21,7 @@ class AppContainer extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <LoggedInComponent email={this.props.user.email} />
+        <SignUpContainer />
         <h3 onClick={this.props.logOut}> Click to Log out </h3>
       </div>
     )
