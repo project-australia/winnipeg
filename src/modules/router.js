@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { SignInContainer } from './authentication/containers/signInContainer'
 import { SignUpContainer } from './authentication/containers/signUpContainer'
 
-import { Home } from './home/home'
+import { HomeScreen } from './home/containers/HomeScreen'
 import { withAuthentication } from './shared/highOrderComponents/authenticationHOC'
 import { TestComponent } from './test/test'
 
@@ -17,7 +17,11 @@ export const ROUTES = {
 
 export const Router = () => (
   <Switch>
-    <Route exact path={ROUTES.HOME} component={Home} />
+
+    <Route exact path={ROUTES.HOME} component={HomeScreen} />
+
+    <Route exact path={ROUTES.SIGN_IN} component={SignInContainer} />
+    <Route exact path={ROUTES.SIGN_UP} component={SignUpContainer} />
 
     <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
     <Route path={ROUTES.SIGN_IN} component={SignInContainer} />
