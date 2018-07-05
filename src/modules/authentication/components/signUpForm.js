@@ -1,4 +1,4 @@
-import PropTypes, { func, string, bool, shape } from 'prop-types'
+import { func, string, bool, shape } from 'prop-types'
 import React, { Component } from 'react'
 import { SignUpRequest } from '../../../domain/signUpRequest'
 
@@ -7,79 +7,6 @@ import { FormButton } from '../../shared/components/buttons'
 import { hasMinimumSizeOf, isNotEmpty, isValidEmail } from '../validation'
 import { FormHeader } from './formHeader'
 import { FormTextInput } from './formTextInput'
-
-export const signupFormType = PropTypes.shape({
-  name: string.isRequired,
-  school: string.isRequired,
-  referredBy: string.isRequired,
-  email: string.isRequired,
-  password: string.isRequired
-}).isRequired
-
-export class EmailPasswordForm extends Component {
-  static propTypes = {
-    form: signupFormType,
-    clearAlerts: func.isRequired
-  }
-
-  setUserName = event => this.props.onChange({ name: event.target.value })
-  setEmail = event => this.props.onChange({ email: event.target.value })
-  setPassword = event => this.props.onChange({ password: event.target.value })
-  setSchool = event => this.props.onChange({ school: event.target.value })
-  setReferredBy = event => this.props.onChange({ referredBy: event.target.value })
-
-  render () {
-    return (
-      <form>
-        <FormHeader />
-        <div>
-          <FormTextInput
-            onChange={this.setUserName}
-            label="Name"
-            validationCondition={isNotEmpty}
-            value={this.props.form.name}
-          />
-          <FormTextInput
-            onChange={this.setEmail}
-            label="Email address"
-            validationCondition={isValidEmail}
-            value={this.props.form.email}
-          />
-          <FormTextInput
-            validationCondition={hasMinimumSizeOf(6)}
-            onChange={this.setPassword}
-            value={this.props.form.password}
-            label="Password"
-            type="password"
-          />
-          <FormTextInput
-            validationCondition={isNotEmpty}
-            onChange={this.setSchool}
-            value={this.props.form.school}
-            label="School"
-          />
-          <FormTextInput
-            onChange={this.setReferredBy}
-            value={this.props.form.referredBy}
-            label="Rep's email (optional)"
-          />
-        </div>SignUpContainer
-        {!this.props.hasKeyboard && (
-          <div>
-            <FormButton
-              label={'Create your account'}
-              onClick={this.props.handleLogin}
-            />
-            <FormButton
-              label="Log in instead"
-              onClick={this.props.navigateToSignIn}
-            />
-          </div>
-        )}
-      </form>
-    )
-  }
-}
 
 const extractSignUpFormFromState = form => {
   const { name, email, password, school, referredBy } = form
@@ -116,9 +43,12 @@ export class SignUpForm extends Component {
     referredBy: ''
   }
 
-  onFormChange = value => {
-    this.setState(value)
-  }
+  onFormChange = value => { this.setState(value) }
+  setUserName = event => { this.onFormChange({ name: event.target.value }) }
+  setEmail = event => { this.onFormChange({ email: event.target.value }) }
+  setPassword = event => { this.onFormChange({ password: event.target.value }) }
+  setSchool = event => { this.onFormChange({ school: event.target.value }) }
+  setReferredBy = event => { this.onFormChange({ referredBy: event.target.value }) }
 
   doSignUp = async () => {
     this.setState({ loading: true })
@@ -141,13 +71,51 @@ export class SignUpForm extends Component {
 
   render () {
     return (
-      <EmailPasswordForm
-        form={this.state}
-        onChange={this.onFormChange}
-        clearAlerts={this.props.clearAlerts}
-        onButtonPress={this.doSignUp}
-        navigateToSignIn={this.props.navigateToSignIn}
-      />
+      <form>
+        <FormHeader />
+        <div>
+          <FormTextInput
+            onChange={this.setUserName}
+            label="Name"
+            validationCondition={isNotEmpty}
+            value={this.state.name}
+          />
+          <FormTextInput
+            onChange={this.setEmail}
+            label="Email address"
+            validationCondition={isValidEmail}
+            value={this.state.email}
+          />
+          <FormTextInput
+            validationCondition={hasMinimumSizeOf(6)}
+            onChange={this.setPassword}
+            value={this.state.password}
+            label="Password"
+            type="password"
+          />
+          <FormTextInput
+            validationCondition={isNotEmpty}
+            onChange={this.setSchool}
+            value={this.state.school}
+            label="School"
+          />
+          <FormTextInput
+            onChange={this.setReferredBy}
+            value={this.state.referredBy}
+            label="Rep's email (optional)"
+          />
+          <div>
+            <FormButton
+              label={'Create your account'}
+              onClick={this.doSignUp}
+            />
+            <FormButton
+              label="Log in instead"
+              onClick={this.props.navigateToSignIn}
+            />
+          </div>
+        </div>
+      </form>
     )
   }
 }

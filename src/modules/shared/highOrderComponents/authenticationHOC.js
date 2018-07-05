@@ -17,14 +17,18 @@ const renderSignInsteadOfComponentIfUserIsNotAuth = branch(
 const injectAuthStateListener = lifecycle({
   state: { unsubscriber: null },
   componentDidMount () {
-    const unsubscriber = onAuthStateChanged((user) => {
-      if (user && user.uid !== this.props.user.id) {
-        console.log('Firebase auth state has changed to logged in.', user.email)
-        this.props.getProfileAndUpdate(user.uid)
-      } else if (user === null) {
+    const unsubscriber = onAuthStateChanged((firebaseUser) => {
+      if (firebaseUser) {
+        if (firebaseUser.uid !== this.props.user.id) {
+          console.log('Firebase auth state has changed to logged in.', firebaseUser.email)
+          this.props.getProfileAndUpdate(firebaseUser.uid)
+        }
+      } else if (this.props.user.isLoggedIn()) {
+        console.log('Firebase auth state has changed to logged out')
         this.props.updateUser(NOT_LOGGED_IN)
       }
     })
+
     this.setState({ unsubscriber })
   },
   componentWillUnmount () {

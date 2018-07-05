@@ -7,7 +7,6 @@ import './styles/Header.css'
 
 const HeaderContainer = () => {
   return (
-
     <ContainerCentered className="App-header">
       <header>
         <h1 className="App-title">Welcome to React</h1>
