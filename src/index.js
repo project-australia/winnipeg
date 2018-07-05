@@ -6,8 +6,8 @@ import { Router } from 'react-router-dom'
 import { setUpConfigs } from './config'
 import { createStore } from './config/redux'
 import registerServiceWorker from './config/registerServiceWorker'
+
 import { App } from './modules/app'
-import './stylesheets/index.css'
 
 setUpConfigs()
 

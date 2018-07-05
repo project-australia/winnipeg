@@ -4,11 +4,12 @@ import React, { Component } from 'react'
 // import { logOutAction } from '../redux/actions/async'
 // import { userSelector } from '../redux/selectors/authenticationSelectors'
 
+import { Router } from './router'
 import { Header } from './shared/components/layout/Header'
+import { Footer } from './shared/components/layout/Footer'
 
 import 'semantic-ui-css/semantic.min.css'
-import '../stylesheets/app.css'
-import { Router } from './router'
+import './styles/app.css'
 
 class AppContainer extends Component {
   render () {
@@ -19,6 +20,7 @@ class AppContainer extends Component {
       <div>
         <Header />
         <Router />
+        <Footer />
       </div>
     )
   }

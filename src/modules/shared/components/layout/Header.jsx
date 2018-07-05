@@ -1,15 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ROUTES } from '../../../router'
+import ContainerCentered from '../grid/ContainerCentered'
+
+import './styles/Header.css'
 
 const HeaderContainer = () => {
   return (
-    <header className="App-header">
-      <h1 className="App-title">Welcome to React</h1>
-      <Link to='/' > Home</Link>
-      <Link to='/home2' > Home</Link>
-      <Link to='/sign_in' > Sign IN</Link>
-      <Link to='/sign_up' > Sign UP</Link>
-    </header>
+
+    <ContainerCentered className="App-header">
+      <header>
+        <h1 className="App-title">Welcome to React</h1>
+        <Link to={ROUTES.HOME} > Home</Link>
+        <Link to={ROUTES.SIGN_IN} > Sign IN</Link>
+        <Link to={ROUTES.SIGN_UP}> Sign UP</Link>
+      </header>
+    </ContainerCentered>
   )
 }
 
