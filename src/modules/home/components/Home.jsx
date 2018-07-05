@@ -5,10 +5,11 @@ import { SearchBooksToBuy } from './SearchBooksToBuy'
 import { SellingBooksSection } from './SellingBooksSection'
 import { BookListHome } from './BookListHome'
 
+import './styles/Home.css'
 class HomeContainer extends Component {
   render () {
     return (
-      <ContainerCentered>
+      <ContainerCentered className='home-container-wrapper'>
         <SearchBooksToBuy />
         <SellingBooksSection />
         <BookListHome />
