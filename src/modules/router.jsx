@@ -17,12 +17,7 @@ export const ROUTES = {
 
 export const Router = () => (
   <Switch>
-
     <Route exact path={ROUTES.HOME} component={HomeScreen} />
-
-    <Route exact path={ROUTES.SIGN_IN} component={SignInContainer} />
-    <Route exact path={ROUTES.SIGN_UP} component={SignUpContainer} />
-
     <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
     <Route path={ROUTES.SIGN_IN} component={SignInContainer} />
     <Route path={ROUTES.SIGN_UP} component={SignUpContainer} />
