@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import ContainerCentered from '../../shared/components/grid/ContainerCentered'
 import { SearchBooksToBuy } from './SearchBooksToBuy'
 import { SellingBooksSection } from './SellingBooksSection'
-import { BookList } from './BookList'
+import { BookListHome } from './BookListHome'
 
 class HomeContainer extends Component {
   render () {
@@ -11,8 +11,8 @@ class HomeContainer extends Component {
       <ContainerCentered>
         <SearchBooksToBuy />
         <SellingBooksSection />
-        <BookList />
-        <BookList />
+        <BookListHome />
+        <BookListHome />
       </ContainerCentered>
     )
   }

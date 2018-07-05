@@ -1,11 +1,13 @@
 import React from 'react'
+import { Input } from 'semantic-ui-react'
 
 const SearchBooksToBuyContainer = () => {
   return (
     <div>
-      <h1>
-        Search Books Section
-      </h1>
+      <Input
+        icon={{ name: 'search', circular: true, link: true }}
+        placeholder='Search...'
+      />
     </div>
   )
 }

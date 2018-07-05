@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BookListContainer = () => {
+const BookListHomeContainer = () => {
   return (
     <div>
       <h1>
@@ -10,4 +10,4 @@ const BookListContainer = () => {
   )
 }
 
-export const BookList = BookListContainer
+export const BookListHome = BookListHomeContainer
