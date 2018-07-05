@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { signUpAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
-import { SignUp } from '../components/signUp'
+import { SignUpForm } from '../components/signUpForm'
 
 class SignUpPresenter extends Component {
   static navigationOptions = {
@@ -42,7 +42,7 @@ class SignUpPresenter extends Component {
 
   render () {
     return (
-      <SignUp
+      <SignUpForm
         buttonText="SIGN UP"
         alert={this.props.alert}
         clearAlerts={this.props.clearAlerts}
