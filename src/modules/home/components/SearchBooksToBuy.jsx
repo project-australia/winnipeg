@@ -1,6 +1,8 @@
 import React from 'react'
 import { Input } from 'semantic-ui-react'
 
+import './styles/SearchBooksToBuy.css'
+
 const SearchBooksToBuyContainer = () => {
   return (
     <div>

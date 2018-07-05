@@ -1,11 +1,11 @@
 import React from 'react'
 
+import './styles/SellingBooksSection.css'
+
 const SellingBooksSectionContainer = () => {
   return (
     <div>
-      <h1>
-        Selling Books Section
-      </h1>
+      Selling Books Section
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
+import './styles/BookListHome.css'
+
 const BookListHomeContainer = () => {
   return (
     <div>
-      <h1>
-        Books List Container
-      </h1>
+      Books List Container
     </div>
   )
 }
