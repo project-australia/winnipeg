@@ -1,4 +1,4 @@
-import { createBrowserHistory } from 'history'
+import history from './config/historyRouter'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
@@ -11,13 +11,11 @@ import './stylesheets/index.css'
 
 setUpConfigs()
 
-const element = (
+ReactDOM.render(
   <Provider store={createStore()}>
-    <Router history={createBrowserHistory({})}>
+    <Router history={history}>
       <App />
     </Router>
-  </Provider>
-)
-
-ReactDOM.render(element, document.getElementById('root'))
+  </Provider>,
+  document.getElementById('root'))
 registerServiceWorker()

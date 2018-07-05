@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class HomeC extends Component {
+class home2 extends Component {
   render () {
     return (
       <div>
-        <h1>There's no place like 127.0.0.1</h1>
+        <h1>Home 2</h1>
       </div>
     )
   }
 }
 
-export const Home = HomeC
+export const Home2 = home2
