@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class home2 extends Component {
+export class Home extends Component {
   render () {
     return (
       <div>
@@ -9,5 +9,3 @@ class home2 extends Component {
     )
   }
 }
-
-export const Home2 = home2

@@ -1,11 +1,8 @@
-import history from './config/historyRouter'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
-import { setUpConfigs } from './config'
-import { createStore } from './config/redux'
-import registerServiceWorker from './config/registerServiceWorker'
+import { setUpConfigs, history, createStore, registerServiceWorker } from './config'
 
 import { App } from './modules/app'
 

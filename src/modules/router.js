@@ -5,20 +5,21 @@ import { SignInContainer } from './authentication/containers/signInContainer'
 import { SignUpContainer } from './authentication/containers/signUpContainer'
 
 import { Home } from './home/home'
-import { Home2 } from './home/home2'
+import { withAuthentication } from './shared/highOrderComponents/authenticationHOC'
+import { TestComponent } from './test/test'
 
 export const ROUTES = {
   HOME: '/',
-  HOME2: '/home2',
   SIGN_IN: '/sign_in',
-  SIGN_UP: '/sign_up'
+  SIGN_UP: '/sign_up',
+  TEST: '/test_route'
 }
 
 export const Router = () => (
   <Switch>
-    <Route exact path='/' component={Home} />
-    <Route path='/home2' component={Home2} />
+    <Route exact path={ROUTES.HOME} component={Home} />
 
+    <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
     <Route path={ROUTES.SIGN_IN} component={SignInContainer} />
     <Route path={ROUTES.SIGN_UP} component={SignUpContainer} />
   </Switch>

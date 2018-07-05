@@ -9,3 +9,7 @@ export const setUpConfigs = () => {
   initializeFirebase()
   initializeAxios()
 }
+
+export * from './redux'
+export * from './historyRouter'
+export * from './registerServiceWorker'

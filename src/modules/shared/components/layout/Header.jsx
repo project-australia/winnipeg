@@ -14,6 +14,7 @@ const HeaderContainer = () => {
         <Link to={ROUTES.HOME} > Home</Link>
         <Link to={ROUTES.SIGN_IN} > Sign IN</Link>
         <Link to={ROUTES.SIGN_UP}> Sign UP</Link>
+        <Link to={ROUTES.TEST}> TEST COMPONENT</Link>
       </header>
     </ContainerCentered>
   )
