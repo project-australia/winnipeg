@@ -5,13 +5,13 @@ import { updateUserProfile } from '../../../redux/actions/sync/authenticationAct
 import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
 import { userSelector } from '../../../redux/selectors/authenticationSelectors'
 import { onAuthStateChanged } from '../../../services/firebase/authentication'
-import { SignInContainer } from '../../authentication/containers/signInContainer'
+import { SignInScreen } from '../../authentication/containers/signInScreen'
 
 const isUnauthorized = props => props.user === null || Object.is(props.user, NOT_LOGGED_IN)
 
 const renderSignInsteadOfComponentIfUserIsNotAuth = branch(
   isUnauthorized,
-  renderComponent(SignInContainer)
+  renderComponent(SignInScreen)
 )
 
 const injectAuthStateListener = lifecycle({

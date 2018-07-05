@@ -31,7 +31,7 @@ ForgotPassword.propTypes = {
   }).isRequired
 }
 
-export const ForgotPasswordContainer = connect(
+export const ForgotPasswordScreen = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ForgotPassword)

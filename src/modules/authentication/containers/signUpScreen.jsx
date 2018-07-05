@@ -64,6 +64,6 @@ const mapDispatchToProps = dispatch => ({
   clearAlerts: () => dispatch(clearAlert())
 })
 
-export const SignUpContainer = connect(mapStateToProps, mapDispatchToProps)(
+export const SignUpScreen = connect(mapStateToProps, mapDispatchToProps)(
   SignUpPresenter
 )
