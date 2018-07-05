@@ -17,9 +17,9 @@ export const ROUTES = {
 export const Router = () => (
   <Switch>
     <Route exact path='/' component={Home} />
-    <Route exact path='/home2' component={Home2} />
+    <Route path='/home2' component={Home2} />
 
-    <Route exact path={ROUTES.SIGN_IN} component={SignInContainer} />
-    <Route exact path={ROUTES.SIGN_UP} component={SignUpContainer} />
+    <Route path={ROUTES.SIGN_IN} component={SignInContainer} />
+    <Route path={ROUTES.SIGN_UP} component={SignUpContainer} />
   </Switch>
 )

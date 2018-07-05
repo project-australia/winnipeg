@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
-import { logOutAction } from '../redux/actions/async'
-import { userSelector } from '../redux/selectors/authenticationSelectors'
+// import { logOutAction } from '../redux/actions/async'
+// import { userSelector } from '../redux/selectors/authenticationSelectors'
 
 import { Header } from './shared/components/layout/Header'
 
@@ -23,12 +23,13 @@ class AppContainer extends Component {
     )
   }
 }
+export const App = AppContainer
 
-export const App = connect(
-  (state) => ({
-    user: userSelector(state)
-  }),
-  {
-    logOut: logOutAction
-  }
-)(AppContainer)
+// export const App = connect(
+//   (state) => ({
+//     user: userSelector(state)
+//   }),
+//   {
+//     logOut: logOutAction
+//   }
+// )(AppContainer)
