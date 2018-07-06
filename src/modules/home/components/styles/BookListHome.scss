@@ -1,0 +1,10 @@
+.blh-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.blh-book-list  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

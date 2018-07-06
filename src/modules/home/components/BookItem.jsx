@@ -4,7 +4,7 @@ import './styles/BookItem.css'
 
 const BookItem = () => {
   return (
-    <div>
+    <div className='bi-wrapper'>
       Item Book
     </div>
   )
