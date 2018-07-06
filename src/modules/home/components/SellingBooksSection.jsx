@@ -4,7 +4,7 @@ import './styles/SellingBooksSection.css'
 
 const SellingBooksSectionContainer = () => {
   return (
-    <div>
+    <div className='sbs-wrapper'>
       Selling Books Section
     </div>
   )
