@@ -9,20 +9,10 @@ class SearchBooksToBuyContainer extends Component {
   }
 
   onChange = ({ target }) => this.setState({ [target.name]: target.value })
-  // onChange = event => {
-  //   event.preventDefault()
-  //   const { target } = event
-  //   if (event.charCode !== undefined) {
-  //     console.log('1')
-  //   } else if (event.keyIdentifier !== undefined) {
-  //     console.log('2')
-  //   } else if (event.keyCode !== undefined) {
-  //     console.log('3')
-  //   }
-  //   this.setState({ [target.name]: target.value })
-  // }
 
-  onSubmit = () => console.log('chama função de busca na API', this.state.searchInput)
+  onKeyPressed = ({ keyCode }) => keyCode === 13 ? this.onSubmit() : null
+
+  onSubmit = () => console.log('chama função de busca na API: ', this.state.searchInput)
 
   render () {
     const { searchInput } = this.state
@@ -32,9 +22,10 @@ class SearchBooksToBuyContainer extends Component {
           size='massive'
           icon='search'
           placeholder='Search...'
-          onChange={this.onChange}
           value={searchInput}
           name='searchInput'
+          onKeyDown={this.onKeyPressed}
+          onChange={this.onChange}
         />
         <Button onClick={this.onSubmit}>Search</Button>
       </div>
