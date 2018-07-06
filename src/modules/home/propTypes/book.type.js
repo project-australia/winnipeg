@@ -1,6 +1,6 @@
 import { number, shape, string, arrayOf, bool, oneOf } from 'prop-types'
 
-export const book = shape({
+export const bookProptype = shape({
   updatedAt: string,
   createdAt: string,
   title: string.isRequired,

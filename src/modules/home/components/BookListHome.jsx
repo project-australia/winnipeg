@@ -3,7 +3,7 @@ import { string, arrayOf } from 'prop-types'
 
 import BookItem from './BookItem'
 
-import { book } from '../propTypes/book.type'
+import { bookProptype } from '../propTypes/book.type'
 
 import './styles/BookListHome.css'
 
@@ -22,7 +22,7 @@ const BookListHomeContainer = ({ title, books }) => {
 }
 
 BookListHomeContainer.propTypes = {
-  books: arrayOf(book).isRequired,
+  books: arrayOf(bookProptype).isRequired,
   title: string.isRequired
 }
 

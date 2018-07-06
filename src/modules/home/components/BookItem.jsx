@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { book } from '../propTypes/book.type'
+import { bookProptype } from '../propTypes/book.type'
 
 import './styles/BookItem.css'
 
@@ -17,7 +17,7 @@ const BookItem = ({ book }) => {
 }
 
 BookItem.propTypes = {
-  book: book.isRequired
+  book: bookProptype.isRequired
 }
 
 export default BookItem
