@@ -27,6 +27,6 @@ export const Router = () => (
     <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
     <Route path={ROUTES.SIGN_IN} component={withAuthListener(SignInScreen)} />
     <Route path={ROUTES.SIGN_UP} component={withAuthListener(SignUpScreen)} />
-    <Route path={ROUTES.FORGOT_PASSWORD} component={withAuthListener(ForgotPasswordScreen)} />
+    <Route path={ROUTES.FORGOT_PASSWORD} component={ForgotPasswordScreen} />
   </Switch>
 )

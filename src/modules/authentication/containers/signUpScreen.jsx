@@ -1,9 +1,10 @@
-import { bool, func, shape, string } from 'prop-types'
+import { bool, func, shape, string, object } from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { signUpAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
+import { ROUTES } from '../../router'
 import { SignUpForm } from '../components/signUpForm'
 
 class SignUpPresenter extends Component {
@@ -12,6 +13,7 @@ class SignUpPresenter extends Component {
   }
 
   static propTypes = {
+    history: object.isRequired,
     signUp: func.isRequired,
     alert: shape({
       showAlert: bool.isRequired,
@@ -20,27 +22,24 @@ class SignUpPresenter extends Component {
     clearAlerts: func.isRequired
   }
 
-  componentWillUpdate (nextProps) {
-    // TODO: Rever esquema de navegaçao.
-    // const isUserLoggedIn = nextProps.user && nextProps.user !== NOT_LOGGED_IN
-    // if (isUserLoggedIn) {
-    //   nextProps.navigation.navigate('Home')
-    // }
-  }
-
   onSignUp = async signUpForm => {
     await this.props.signUp(signUpForm)
   }
 
   navigateToSignInScreen = () => {
-    this.props.navigation.navigate('SignIn')
+    this.props.history.push(ROUTES.SIGN_IN)
   }
 
   navigateBack = () => {
-    this.props.navigation.goBack()
+    this.props.history.goBack()
   }
 
   render () {
+    if (this.props.user.isLoggedIn()) {
+      this.props.history.push(ROUTES.HOME)
+      return null
+    }
+
     return (
       <SignUpForm
         buttonText="SIGN UP"
