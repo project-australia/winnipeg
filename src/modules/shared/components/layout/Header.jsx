@@ -10,9 +10,9 @@ const HeaderContainer = () => {
     <ContainerCentered className="App-header">
       <header>
         <h1 className="App-title">Welcome to React</h1>
-        <Link to={ROUTES.HOME} > Home</Link>
-        <Link to={ROUTES.SIGN_IN} > Sign IN</Link>
-        <Link to={ROUTES.SIGN_UP}> Sign UP</Link>
+        <Link to={ROUTES.HOME} > HOME</Link>
+        <Link to={ROUTES.SIGN_IN} > SIGN IN</Link>
+        <Link to={ROUTES.SIGN_UP}> SIGN UP</Link>
         <Link to={ROUTES.FORGOT_PASSWORD}> FORGOT PASSWORD</Link>
         <Link to={ROUTES.TEST}> TEST COMPONENT</Link>
       </header>

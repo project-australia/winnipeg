@@ -3,6 +3,16 @@
   flex-direction: column;
   margin-bottom: 50px;
 }
+.blh-title-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  .title {
+    font-size: 20px;
+  }
+}
 .blh-book-list  {
   display: flex;
   flex-direction: row;

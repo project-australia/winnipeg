@@ -10,19 +10,22 @@ class SearchBooksToBuyContainer extends Component {
 
   onChange = ({ target }) => this.setState({ [target.name]: target.value })
 
-  onSubmit = () => console.log('chama função de busca na API', this.state.searchInput)
+  onKeyPressed = ({ keyCode }) => keyCode === 13 ? this.onSubmit() : null
+
+  onSubmit = () => console.log('chama função de busca na API: ', this.state.searchInput)
 
   render () {
     const { searchInput } = this.state
     return (
-      <div>
+      <div className='sbtb-wrapper'>
         <Input
           size='massive'
           icon='search'
           placeholder='Search...'
-          onChange={this.onChange}
           value={searchInput}
           name='searchInput'
+          onKeyDown={this.onKeyPressed}
+          onChange={this.onChange}
         />
         <Button onClick={this.onSubmit}>Search</Button>
       </div>
