@@ -6,7 +6,7 @@ import { forgotPasswordAction } from '../../../redux/actions'
 import { clearAlert } from '../../../redux/actions/sync'
 import { ForgotPasswordComponent } from '../components/forgotPasswordComponent'
 
-const ForgotPassword = props => (
+const ForgotPasswordContainer = props => (
   <ForgotPasswordComponent
     resetPassword={props.resetPassword}
     alert={props.alert}
@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
   clearAlerts: () => dispatch(clearAlert())
 })
 
-ForgotPassword.propTypes = {
+ForgotPasswordContainer.propTypes = {
   resetPassword: PropTypes.func.isRequired,
   alert: PropTypes.shape({
     showAlert: PropTypes.bool.isRequired,
@@ -34,4 +34,4 @@ ForgotPassword.propTypes = {
 export const ForgotPasswordScreen = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ForgotPassword)
+)(ForgotPasswordContainer)

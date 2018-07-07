@@ -20,8 +20,8 @@ export class ForgotPasswordComponent extends React.Component {
     this.state = { email: props.email, loading: false }
   }
 
-  setEmail = (emailValue) => {
-    const email = emailValue.trim()
+  setEmail = (event) => {
+    const email = event.target.value.trim()
     this.setState({ email })
   }
 
@@ -33,7 +33,7 @@ export class ForgotPasswordComponent extends React.Component {
 
   render () {
     return (
-      <div>
+      <React.Fragment>
         <FormTextInput
           onChange={this.setEmail}
           label="Your email address"
@@ -43,7 +43,7 @@ export class ForgotPasswordComponent extends React.Component {
           label="Reset Password"
           onClick={this.onButtonPress}
         />
-      </div>
+      </React.Fragment>
     )
   }
 }

@@ -5,7 +5,6 @@ import './styles/Footer.css'
 
 const FooterContainer = () => {
   return (
-
     <ContainerCentered className='footer'>
       <div>
         Esse é um futuro footer boladão
