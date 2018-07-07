@@ -1,19 +1,19 @@
-import { bool, func, shape, string } from 'prop-types'
+import { bool, func, shape, string, object } from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { signInAction } from '../../../redux/actions/async/authenticationAsyncActions'
 import { clearAlert } from '../../../redux/actions/sync'
-import { NOT_LOGGED_IN } from '../../../redux/reducers/authentication/constants'
 import { userSelector } from '../../../redux/selectors/authenticationSelectors'
+import { ROUTES } from '../../router'
 import { LoginForm } from '../components/loginForm'
 import { SignInFooter } from '../components/signInFooter'
 import { UserPropTypes } from '../propTypes/user.type'
 
 class SignIn extends Component {
   static propTypes = {
+    history: object.isRequired,
     signIn: func.isRequired,
-    redirectTo: string.isRequired,
     user: UserPropTypes,
     alert: shape({
       showAlert: bool.isRequired,
@@ -22,38 +22,18 @@ class SignIn extends Component {
     clearAlerts: func.isRequired
   }
 
-  static defaultProps = {
-    redirectTo: 'Home'
-  }
-
   static navigationOptions = {
     header: null
   }
 
-  state = {
-    customRedirectTo: false
-  }
-
-  componentWillUpdate (nextProps) {
-    const isUserLoggedIn = nextProps.user && nextProps.user !== NOT_LOGGED_IN
-    if (isUserLoggedIn) {
-      if (this.state.customRedirectTo) {
-        return nextProps.navigation.navigate(this.state.customRedirectTo)
-      }
-
-      // TODO: If user is logged in redirect them
-      // nextProps.navigation.navigate(nextProps.redirectTo)
-    }
-  }
-
   navigateTo = (route) => () => {
-    window.alert(route)
+    this.props.history.push(route)
   }
 
   footer = (
     <SignInFooter
-      navigateToForgotPassword={this.navigateTo('Forgot Password')}
-      navigateToSignUp={this.navigateTo('SignUpForm')}
+      navigateToForgotPassword={this.navigateTo(ROUTES.FORGOT_PASSWORD)}
+      navigateToSignUp={this.navigateTo(ROUTES.SIGN_UP)}
     />
   )
 
@@ -62,13 +42,18 @@ class SignIn extends Component {
   }
 
   render () {
+    if (this.props.user.isLoggedIn()) {
+      this.props.history.push(ROUTES.HOME)
+      return null
+    }
+
     return (
       <LoginForm
         buttonText='Log In'
         footer={this.footer}
         onClick={this.onSignIn}
         alert={this.props.alert}
-        navigateBack={this.navigateTo('Go Back')}
+        navigateBack={this.navigateTo(ROUTES.HOME)}
         clearAlerts={this.props.clearAlerts}
       />
     )

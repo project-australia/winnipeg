@@ -1,15 +1,3 @@
-import {
-  alertAction,
-  updateUserProfile,
-  successRetrievedPassword,
-  updateUserNetworking,
-  updateUserOrders
-} from '../sync/authenticationActions'
-import {
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  logOut
-} from '../../../services/firebase/authentication'
 import { FORGOT_PASSWORD_SUCCESS_MSG } from '../../../constants/messages'
 import {
   signUpUser,
@@ -19,13 +7,26 @@ import {
   getUserNetwork,
   requestWithdraw
 } from '../../../services/backend/userService'
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  logOut
+} from '../../../services/firebase/authentication'
 import { NOT_LOGGED_IN } from '../../reducers/authentication/constants'
+import {
+  alertAction,
+  updateUserProfile,
+  successRetrievedPassword,
+  updateUserNetworking,
+  updateUserOrders
+} from '../sync/authenticationActions'
 
 export function signInAction (email, password) {
   return async dispatch => {
     try {
       const firebaseUser = await signInWithEmailAndPassword(email, password)
-      getProfileAndUpdateUserAction(firebaseUser.uid)
+      const user = await getUserProfile(firebaseUser.uid)
+      dispatch(updateUserProfile(user))
     } catch (error) {
       dispatch(alertAction(error))
     }

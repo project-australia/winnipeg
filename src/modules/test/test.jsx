@@ -1,11 +1,29 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logOutAction } from '../../redux/actions/async'
+import { userSelector } from '../../redux/selectors/authenticationSelectors'
+import { UserPropTypes } from '../authentication/propTypes/user.type'
 
-export class TestComponent extends Component {
+class Test extends Component {
+  static propTypes = {
+    user: UserPropTypes
+  }
+
   render () {
     return (
       <React.Fragment>
-        <h1>Component</h1>
+        <h1 onClick={this.props.logOut}>Hello {this.props.user.email}, Click to Log Out</h1>
       </React.Fragment>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  user: userSelector(state)
+})
+
+const mapDispatchToProps = {
+  logOut: logOutAction
+}
+
+export const TestComponent = connect(mapStateToProps, mapDispatchToProps)(Test)

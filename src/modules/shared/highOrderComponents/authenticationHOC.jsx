@@ -47,8 +47,12 @@ const mapDispatchToProps = ({
   updateUser: updateUserProfile
 })
 
-export const withAuthentication = compose(
+export const withAuthListener = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  injectAuthStateListener,
+  injectAuthStateListener
+)
+
+export const withAuthentication = compose(
+  withAuthListener,
   renderSignInsteadOfComponentIfUserIsNotAuth
 )
