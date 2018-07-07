@@ -73,48 +73,44 @@ export class SignUpForm extends Component {
     return (
       <form>
         <FormHeader />
-        <div>
-          <FormTextInput
-            onChange={this.setUserName}
-            label="Name"
-            validationCondition={isNotEmpty}
-            value={this.state.name}
-          />
-          <FormTextInput
-            onChange={this.setEmail}
-            label="Email address"
-            validationCondition={isValidEmail}
-            value={this.state.email}
-          />
-          <FormTextInput
-            validationCondition={hasMinimumSizeOf(6)}
-            onChange={this.setPassword}
-            value={this.state.password}
-            label="Password"
-            type="password"
-          />
-          <FormTextInput
-            validationCondition={isNotEmpty}
-            onChange={this.setSchool}
-            value={this.state.school}
-            label="School"
-          />
-          <FormTextInput
-            onChange={this.setReferredBy}
-            value={this.state.referredBy}
-            label="Rep's email (optional)"
-          />
-          <div>
-            <FormButton
-              label={'Create your account'}
-              onClick={this.doSignUp}
-            />
-            <FormButton
-              label="Log in instead"
-              onClick={this.props.navigateToSignIn}
-            />
-          </div>
-        </div>
+        <FormTextInput
+          onChange={this.setUserName}
+          label="Name"
+          validationCondition={isNotEmpty}
+          value={this.state.name}
+        />
+        <FormTextInput
+          onChange={this.setEmail}
+          label="Email address"
+          validationCondition={isValidEmail}
+          value={this.state.email}
+        />
+        <FormTextInput
+          validationCondition={hasMinimumSizeOf(6)}
+          onChange={this.setPassword}
+          value={this.state.password}
+          label="Password"
+          type="password"
+        />
+        <FormTextInput
+          validationCondition={isNotEmpty}
+          onChange={this.setSchool}
+          value={this.state.school}
+          label="School"
+        />
+        <FormTextInput
+          onChange={this.setReferredBy}
+          value={this.state.referredBy}
+          label="Rep's email (optional)"
+        />
+        <FormButton
+          label={'Create your account'}
+          onClick={this.doSignUp}
+        />
+        <FormButton
+          label="Log in instead"
+          onClick={this.props.navigateToSignIn}
+        />
       </form>
     )
   }

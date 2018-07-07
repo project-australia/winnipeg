@@ -9,11 +9,11 @@ import './styles/app.css'
 class AppContainer extends Component {
   render () {
     return (
-      <div>
+      <React.Fragment>
         <Header />
         <Router />
         <Footer />
-      </div>
+      </React.Fragment>
     )
   }
 }
