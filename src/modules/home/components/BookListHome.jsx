@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { string, arrayOf } from 'prop-types'
 
 import BookItem from './BookItem'
@@ -12,7 +13,7 @@ const BookListHomeContainer = ({ title, books }) => {
     <div className='blh-wrapper'>
       <div className='blh-title-box'>
         <span className='title'>{title}</span>
-        <span>View All</span>
+        <span><Link to='/booklist'>View All</Link></span>
       </div>
       <div className='blh-book-list'>
         {books.map(book => <BookItem key={book.id} book={book} />)}
