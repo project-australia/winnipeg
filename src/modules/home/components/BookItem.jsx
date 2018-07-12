@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'semantic-ui-react'
 
 import { bookProptype } from '../propTypes/book.type'
 
@@ -10,8 +11,8 @@ const BookItem = ({ book }) => {
       <div>Title: {book.title}</div>
       <div>Authors: {book.authors.join(', ')}</div>
       <div>Edition: {book.edition}</div>
-      <div>Buy {book.prices.buy}</div>
-      <div>Rent {book.prices.rent}</div>
+      <Button onClick={() => console.log('book details')}>Buy {book.prices.buy}</Button>
+      <Button onClick={() => console.log('book details')}>Rent {book.prices.rent}</Button>
     </div>
   )
 }
