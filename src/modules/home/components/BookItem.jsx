@@ -2,8 +2,15 @@ import React from 'react'
 import { Button } from 'semantic-ui-react'
 
 import { bookProptype } from '../propTypes/book.type'
+import { ROUTES } from '../../router'
+import { history } from '../../../config/historyRouter'
 
 import './styles/BookItem.css'
+
+const navigateToBookDetail = (book, type) => history.push({
+  pathname: ROUTES.BOOKDETAIL,
+  state: { book, type }
+})
 
 const BookItem = ({ book }) => {
   return (
@@ -11,8 +18,14 @@ const BookItem = ({ book }) => {
       <div>Title: {book.title}</div>
       <div>Authors: {book.authors.join(', ')}</div>
       <div>Edition: {book.edition}</div>
-      <Button onClick={() => console.log('book details')}>Buy {book.prices.buy}</Button>
-      <Button onClick={() => console.log('book details')}>Rent {book.prices.rent}</Button>
+      <div>
+        <Button onClick={() => navigateToBookDetail(book, 'BUY')}>
+          Buy {book.prices.buy}
+        </Button>
+        <Button onClick={() => navigateToBookDetail(book, 'RENT')}>
+          Rent {book.prices.rent}
+        </Button>
+      </div>
     </div>
   )
 }

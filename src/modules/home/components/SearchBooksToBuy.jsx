@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Input, Button } from 'semantic-ui-react'
 
+import { history } from '../../../config/historyRouter'
+import { ROUTES } from '../../router'
+
 import './styles/SearchBooksToBuy.css'
 
 class SearchBooksToBuyContainer extends Component {
@@ -12,7 +15,10 @@ class SearchBooksToBuyContainer extends Component {
 
   onKeyPressed = ({ keyCode }) => keyCode === 13 ? this.onSubmit() : null
 
-  onSubmit = () => console.log('chama função de busca na API: ', this.state.searchInput)
+  onSubmit = () => history.push({
+    pathname: ROUTES.BOOKLIST,
+    state: { searchParam: this.state.searchInput, type: 'BUY' }
+  })
 
   render () {
     const { searchInput } = this.state

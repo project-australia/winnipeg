@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Input, Button, List } from 'semantic-ui-react'
 
 import './styles/SellingBooksSection.css'
+import { ROUTES } from '../../router'
+import { history } from '../../../config/historyRouter'
 
 class SellingBooksSectionContainer extends Component {
   state = {
@@ -12,7 +14,10 @@ class SellingBooksSectionContainer extends Component {
 
   onKeyPressed = ({ keyCode }) => keyCode === 13 ? this.onSubmit() : null
 
-  onSubmit = () => console.log('chama função de busca na API: ', this.state.isbn)
+  onSubmit = () => history.push({
+    pathname: ROUTES.BOOKLIST,
+    state: { isbn: this.state.isbn, type: 'SELL' }
+  })
 
   render () {
     const { isbn } = this.state

@@ -5,6 +5,7 @@ import { SignInScreen } from './authentication/containers/signInScreen'
 import { SignUpScreen } from './authentication/containers/signUpScreen'
 import { BookListScreen } from './bookList/containers/BookListScreen'
 import { HomeScreen } from './home/containers/HomeScreen'
+import { BookDetailsScreen } from './book/containers/BookDetailsScreen'
 import {
   withAuthentication,
   withAuthListener
@@ -17,13 +18,15 @@ export const ROUTES = {
   SIGN_UP: '/sign_up',
   FORGOT_PASSWORD: '/forgot_password',
   TEST: '/test_route',
-  BOOKLIST: '/booklist'
+  BOOKLIST: '/booklist',
+  BOOKDETAIL: '/book-detail'
 }
 
 export const Router = () => (
   <Switch>
     <Route exact path={ROUTES.HOME} component={HomeScreen} />
     <Route path={ROUTES.BOOKLIST} component={BookListScreen} />
+    <Route path={ROUTES.BOOKDETAIL} component={BookDetailsScreen} />
     <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
     <Route path={ROUTES.SIGN_IN} component={withAuthListener(SignInScreen)} />
     <Route path={ROUTES.SIGN_UP} component={withAuthListener(SignUpScreen)} />
