@@ -6,7 +6,7 @@ class BookDetailsContainer extends Component {
       <div>
         Book Details Screen
         <h1>
-          {this.props.location.state.book.title}
+            search, render
         </h1>
       </div>
     )

@@ -1,5 +1,8 @@
 import Axios from 'axios'
 
+export const allBooks = async () =>
+  Axios.get('books/').then(res => res.data.books || [])
+
 export const featuredBooks = async () =>
   Axios.get('books/featured').then(res => res.data || [])
 export const recentlyAddedBooks = async () =>

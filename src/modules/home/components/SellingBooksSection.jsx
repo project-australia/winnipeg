@@ -15,8 +15,8 @@ class SellingBooksSectionContainer extends Component {
   onKeyPressed = ({ keyCode }) => keyCode === 13 ? this.onSubmit() : null
 
   onSubmit = () => history.push({
-    pathname: ROUTES.BOOKLIST,
-    state: { isbn: this.state.isbn, type: 'SELL' }
+    pathname: ROUTES.BOOKDETAIL,
+    state: { isbn: this.state.isbn }
   })
 
   render () {
