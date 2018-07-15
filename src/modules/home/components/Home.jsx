@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 
 import ContainerCentered from '../../shared/components/grid/ContainerCentered'
+import { BookListHome } from './BookListHome'
+import { Books } from '../../../data/BooksList'
 import { SearchBooksToBuy } from './SearchBooksToBuy'
 import { SellingBooksSection } from './SellingBooksSection'
-import { BookListHome } from './BookListHome'
-
-import { Books } from '../../../data/BooksList'
 
 import './styles/Home.css'
 class HomeContainer extends Component {
   render () {
     return (
-      <div>
-        <ContainerCentered>
-          <SearchBooksToBuy />
-        </ContainerCentered>
+      <div className="home-wrapper">
+        <SearchBooksToBuy />
         <ContainerCentered className='home-selling-section'>
           <SellingBooksSection />
         </ContainerCentered>
