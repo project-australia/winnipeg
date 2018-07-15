@@ -24,7 +24,7 @@ export const ROUTES = {
 
 export const Router = () => (
   <Switch>
-    <Route exact path={ROUTES.HOME} component={HomeScreen} />
+    <Route exact path={ROUTES.HOME} component={withAuthListener(HomeScreen)} />
     <Route path={ROUTES.BOOKLIST} component={BookListScreen} />
     <Route path={ROUTES.BOOKDETAIL} component={BookDetailsScreen} />
     <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
