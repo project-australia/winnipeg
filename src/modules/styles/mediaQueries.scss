@@ -1,0 +1,22 @@
+$break-tiny: 576px;
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+
+@mixin display-size($media) {
+  @if $media == phone-portrait {
+    @media only screen and (max-width: $break-tiny) { @content; }
+  }
+  @if $media == phone-landscape {
+    @media only screen and (min-width: $break-tiny + 1) and (max-width: $break-small) { @content; }
+  }
+  @if $media == phone {
+    @media only screen and (max-width: $break-small - 1) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium - 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-medium) { @content; }
+  }
+}
