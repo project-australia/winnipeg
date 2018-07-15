@@ -1,3 +1,54 @@
-.header-bg {
-  color: white;
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/mediaQueries.scss';
+@import '../../../../styles/app.scss';
+
+.navBar:not(.expanded) {
+  height: $navBarHeight;
+}
+
+.appLogo {
+  margin: 7px 16px;
+}
+
+.stackable-menu {
+  overflow: hidden;
+}
+
+.mobileMenuIcon {
+  display: none !important;
+}
+
+@include display-size(phone) {
+  .stackable-menu {
+    &:not(.active) {
+      height: 0;
+    }
+    &.active {
+      height: auto;
+    }
+  }
+  .mobileMenuIcon {
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $navBarHeight - 1;
+    height: $navBarHeight - 1;
+    align-items: center;
+    justify-content: center;
+    i {
+      color: $blackSecondary;
+      margin: 0 !important;
+    }
+    &:hover {
+      cursor: pointer;
+      i {
+        color: $blackPrimary;
+      }
+    }
+  }
+}
+
+.cartIcon {
+  color: $blackSecondary;
 }
