@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { bool } from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'semantic-ui-react'
 import { ROUTES } from '../../../router'
@@ -7,6 +8,14 @@ import ballardLogo from '../../../../assets/images/ballard-logo-horizontal.svg'
 import './styles/Header.css'
 
 export class Header extends Component {
+  static propTypes = {
+    isLoggedIn: bool
+  }
+
+  static defaultProps = {
+    isLoggedIn: false
+  }
+
   state = {
     isMobileMenuVisible: false
   }

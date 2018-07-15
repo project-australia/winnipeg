@@ -1,19 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import { Header } from '../components/layout/Header'
 
 import { userSelector } from '../../../redux/selectors/authenticationSelectors'
 
-class HeaderBar extends Component {
-  render () {
-    const isLoggedIn = this.props.user.id !== undefined
-    return (
-      <Header
-        isLoggedIn={isLoggedIn}
-      />
-    )
-  }
+const HeaderBar = ({ user }) => {
+  const isLoggedIn = user.id !== undefined
+  return <Header isLoggedIn={isLoggedIn} />
 }
 
 const mapStateToProps = state => ({

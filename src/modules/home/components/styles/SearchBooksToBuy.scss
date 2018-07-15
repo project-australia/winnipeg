@@ -1,3 +1,35 @@
-.sbtb-wrapper {
-  margin-bottom: 20px;
+@import '../../../styles/colors.scss';
+@import '../../../styles/app.scss';
+@import '../../../styles/typography.scss';
+
+.sbtb_input {
+  position: fixed !important;
+  top: $navBarHeight;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  input {
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-radius: 0 !important;
+    border-right: 0 !important;
+    font-size: $h6;
+    padding-bottom: $byte !important;
+    padding-top: $byte !important;
+    &, &+i {
+      transition: all 275ms !important;
+    }
+    &:focus {
+      border-color: $blackDivider !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      font-size: $h5;
+      padding-bottom: $kilo !important;
+      padding-top: $kilo !important;
+      &+i {
+        font-size: $h5 !important
+      }
+    }
+  }
 }

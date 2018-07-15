@@ -1,5 +1,8 @@
-$primaryColor: #15c850;
-$primaryDark: #2bb258;
+$primary700: #E63E2D; // darker
+$primary500: #FF5746; // main color
+$primary300: #FF9085; // lighter
+$secondary700: #00989F;
+$secondary500: #26CBD2;
 $secondaryColor: #1D87FF;
 $alert: #ED5C5C;
 
@@ -10,6 +13,7 @@ $screenBackground: #f3f5f7;
 $screenFront: #f5f5f5;
 $overScreen: #f7f9fa;
 $darkBackground: rgba(0, 0, 0, 0.5);
+$darkSoftOverlay: rgba(0, 0, 0, 0.08);
 
 $blackPrimary: #212121;
 $blackPrimaryAlt: rgba(0, 0, 0, 0.87);

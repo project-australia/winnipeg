@@ -1,8 +1,16 @@
-.home-container-wrapper {
-  display: flex;
-  flex-direction: column;
+@import '../../../styles/app.scss';
+@import '../../../styles/colors.scss';
+
+.home-wrapper {
+  margin-top: $navWithSearchBarHeight;
+  padding-top: $kilo;
 }
 
 .home-selling-section {
-  background-color: gray;
+  background-color: $darkSoftOverlay;
+}
+
+.home-container-wrapper {
+  display: flex;
+  flex-direction: column;
 }

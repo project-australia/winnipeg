@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Button } from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
 
 import { history } from '../../../config/historyRouter'
 import { ROUTES } from '../../router'
@@ -23,18 +23,17 @@ class SearchBooksToBuyContainer extends Component {
   render () {
     const { searchInput } = this.state
     return (
-      <div className='sbtb-wrapper'>
-        <Input
-          size='massive'
-          icon='search'
-          placeholder='Search...'
-          value={searchInput}
-          name='searchInput'
-          onKeyDown={this.onKeyPressed}
-          onChange={this.onChange}
-        />
-        <Button onClick={this.onSubmit}>Search</Button>
-      </div>
+      <Input
+        className="sbtb_input"
+        fluid
+        icon="search"
+        iconPosition="left"
+        name='searchInput'
+        onChange={this.onChange}
+        onKeyDown={this.onKeyPressed}
+        placeholder="Search book"
+        value={searchInput}
+      />
     )
   }
 }

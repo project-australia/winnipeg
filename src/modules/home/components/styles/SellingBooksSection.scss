@@ -1,15 +1,35 @@
+@import '../../../styles/app.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+@import '../../../styles/mediaQueries.scss';
+
 .sbs-wrapper {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: row;
-  .left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+  margin: $byte 0;
+  h4 {
+    font-size: $h4;
   }
-  .right {
-    width: 50%;
+  .sbs-search-row {
     display: flex;
-    flex-direction: column;
+    .input {
+      flex: 1;
+      margin-right: $byte;
+      input {
+        border: 1px solid $blackDivider;
+      }
+    }
+    .button {
+      background-color: $primary500;
+      border: 1px solid $blackDivider;
+      color: $onPrimary;
+    }
+  }
+}
+
+@include display-size(phone) {
+  .sbs-search-row {
+    margin-bottom: $mega;
+    .input {
+      max-width: 280px;
+    }
   }
 }
