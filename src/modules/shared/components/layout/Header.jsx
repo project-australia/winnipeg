@@ -46,14 +46,6 @@ export class Header extends Component {
         {
           route: 'SIGN_UP',
           child: 'SIGN UP'
-        },
-        {
-          route: 'FORGOT_PASSWORD', // REMOVE IT
-          child: 'FORGOT PASSWORD'
-        },
-        {
-          route: 'TEST', // REMOVE IT
-          child: 'TEST'
         }
       ]
     const generateMenuClass = this.state.isMobileMenuVisible ? 'stackable-menu active' : 'stackable-menu'
