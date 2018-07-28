@@ -30,21 +30,21 @@ export class Header extends Component {
     const menuToRender = this.props.isLoggedIn
       ? [
         {
-          route: 'CART',
+          route: ROUTES.SHOPPING_CART,
           child: <Icon className="cartIcon" name="cart" size="large" />
         },
         {
-          route: 'PROFILE', // MISING ROUTE
+          route: ROUTES.PROFILE,
           child: 'PROFILE'
         }
       ]
       : [
         {
-          route: 'SIGN_IN',
+          route: ROUTES.SIGN_IN,
           child: 'SIGN IN'
         },
         {
-          route: 'SIGN_UP',
+          route: ROUTES.SIGN_UP,
           child: 'SIGN UP'
         }
       ]

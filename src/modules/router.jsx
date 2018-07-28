@@ -18,7 +18,8 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot_password',
   PROFILE: '/profile',
   BOOKLIST: '/booklist',
-  BOOKDETAILS: '/book-details'
+  BOOKDETAILS: '/book-details',
+  SHOPPING_CART: '/shopping_cart'
 }
 
 export const Router = () => (

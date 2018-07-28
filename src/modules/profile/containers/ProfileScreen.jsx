@@ -12,6 +12,9 @@ class Profile extends Component {
   render () {
     return (
       <React.Fragment>
+        {/* TODO: PRECISAMOS CORRIGIR O HEADER PARA NAO PASSAR POR CIMA DOS
+         OUTROS COMPONENTS */}
+        <h1 onClick={this.props.logOut}>Hello {this.props.user.email}, Click to Log Out</h1>
         <h1 onClick={this.props.logOut}>Hello {this.props.user.email}, Click to Log Out</h1>
       </React.Fragment>
     )
