@@ -1,14 +1,14 @@
-import Axios from 'axios'
-import { throwResponseBody } from './index'
+import Axios from "axios";
+import { throwResponseBody } from "./index";
 
-const validShippingMethods = ['STANDARD', 'EXPEDITE', 'IN_PERSON', 'SHIPPO']
+const validShippingMethods = ["STANDARD", "EXPEDITE", "IN_PERSON", "SHIPPO"];
 const validOrderStatus = [
-  'WAITING_PAYMENT',
-  'PAYMENT_CONFIRMED',
-  'CANCELLED',
-  'RECEIVED',
-  'SHIPPED'
-]
+  "WAITING_PAYMENT",
+  "PAYMENT_CONFIRMED",
+  "CANCELLED",
+  "RECEIVED",
+  "SHIPPED",
+];
 
 export const createOrder = async (
   orderType,
@@ -16,10 +16,10 @@ export const createOrder = async (
   books,
   shippingAddress,
   userId,
-  total
+  total,
 ) => {
   if (!validShippingMethods.includes(shippingMethod)) {
-    throw new Error('Invalid Shipping Method')
+    throw new Error("Invalid Shipping Method");
   }
 
   const order = {
@@ -27,23 +27,23 @@ export const createOrder = async (
     items: books,
     shippingMethod,
     shippingAddress,
-    total
-  }
+    total,
+  };
 
   return Axios.post(`users/${userId}/orders`, order)
     .then(res => res.data)
-    .catch(throwResponseBody)
-}
+    .catch(throwResponseBody);
+};
 
 export const updateOrder = async (userId, orderId, transactionId, status) => {
   if (!validOrderStatus.includes(status)) {
-    throw new Error('Invalid Status')
+    throw new Error("Invalid Status");
   }
 
   return Axios.put(`users/${userId}/orders/${orderId}`, {
     status,
-    transactionId
+    transactionId,
   })
     .then(res => res.data)
-    .catch(err => throwResponseBody(err))
-}
+    .catch(err => throwResponseBody(err));
+};

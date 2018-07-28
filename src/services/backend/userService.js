@@ -1,56 +1,56 @@
-import Axios from 'axios'
-import { Address } from '../../domain/address'
-import { User } from '../../domain/user'
+import Axios from "axios";
+import { Address } from "../../domain/address";
+import { User } from "../../domain/user";
 
 const SIGNUP_ERROR_MESSAGE =
-  'Something wrong has happened on your sign up, please try it again in a few minutes'
-const SIGNUP_BAD_REQUEST_MESSAGE = 'Please Check your form inputs'
+  "Something wrong has happened on your sign up, please try it again in a few minutes";
+const SIGNUP_BAD_REQUEST_MESSAGE = "Please Check your form inputs";
 
-export const wakeUpBackEnd = () => Axios.get('/health').catch(console.warn)
+export const wakeUpBackEnd = () => Axios.get("/health").catch(console.warn);
 export const requestWithdraw = (userId, wallet) =>
-  Axios.put(`/users/${userId}/requestwithdraw`, wallet).catch(handleError)
+  Axios.put(`/users/${userId}/requestwithdraw`, wallet).catch(handleError);
 export const signUpUser = async signUpForm =>
-  Axios.post('/users', signUpForm)
+  Axios.post("/users", signUpForm)
     .then(mapToUserProfile)
-    .catch(handleError)
+    .catch(handleError);
 export const getUserProfile = async userId =>
   Axios.get(`/users/${userId}/profile`)
     .then(mapToUserProfile)
-    .catch(handleError)
+    .catch(handleError);
 export const putUserProfile = async (id, profile) =>
   Axios.put(`/users/${id}/profile`, profile)
     .then(mapToUserProfile)
-    .catch(handleError)
+    .catch(handleError);
 export const beARepresentantRequest = async id =>
   Axios.put(`/users/${id}/representant`)
     .then(res => res.data)
-    .catch(handleError)
+    .catch(handleError);
 
 export const getUserOrders = async userId =>
   Axios.get(`/users/${userId}/order`)
     .then(res => {
-      return res.data
+      return res.data;
     })
-    .catch(handleError)
+    .catch(handleError);
 
 export const getUserNetwork = async userId =>
   Axios.get(`/users/${userId}/network`)
     .then(res => res.data)
-    .catch(handleError)
+    .catch(handleError);
 
 const handleError = err => {
   if (!err.response) {
-    throw new Error(SIGNUP_ERROR_MESSAGE)
+    throw new Error(SIGNUP_ERROR_MESSAGE);
   }
 
-  const { data, status } = err.response
+  const { data, status } = err.response;
 
   if (status === 400) {
-    throw new Error(SIGNUP_BAD_REQUEST_MESSAGE)
+    throw new Error(SIGNUP_BAD_REQUEST_MESSAGE);
   }
 
-  throw new Error(data.userMessage)
-}
+  throw new Error(data.userMessage);
+};
 
 const mapToUserProfile = response => {
   const {
@@ -65,8 +65,8 @@ const mapToUserProfile = response => {
     club,
     role,
     address,
-    wallet
-  } = response.data
+    wallet,
+  } = response.data;
 
   return new User(
     id,
@@ -84,8 +84,8 @@ const mapToUserProfile = response => {
       address.city,
       address.number,
       address.zipCode,
-      address.state
+      address.state,
     ),
-    wallet
-  )
-}
+    wallet,
+  );
+};

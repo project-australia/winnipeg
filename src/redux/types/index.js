@@ -1,3 +1,3 @@
-export * from './authenticationTypes'
-export * from './shoppingBagTypes'
-export * from './bookTypes'
+export * from "./authenticationTypes";
+export * from "./shoppingBagTypes";
+export * from "./bookTypes";

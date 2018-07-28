@@ -1,7 +1,7 @@
-import { string, shape, number } from 'prop-types'
+import { string, shape, number } from "prop-types";
 
 export const WalletType = shape({
   balance: number,
   paypalAccount: string,
-  status: string
-})
+  status: string,
+});

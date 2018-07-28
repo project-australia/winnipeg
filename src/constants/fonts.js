@@ -1,11 +1,11 @@
-import { Platform } from 'react-native'
+import { Platform } from "react-native";
 
 const type = {
-  kefa: 'kefa',
-  base: 'HelveticaNeue',
-  bold: 'HelveticaNeue-Bold',
-  emphasis: 'HelveticaNeue-Italic'
-}
+  kefa: "kefa",
+  base: "HelveticaNeue",
+  bold: "HelveticaNeue-Bold",
+  emphasis: "HelveticaNeue-Italic",
+};
 
 const size = {
   h1: 42,
@@ -18,85 +18,85 @@ const size = {
   regular: 17,
   medium: 15,
   small: 13,
-  tiny: 11
-}
+  tiny: 11,
+};
 
 const style = {
   navbarTitle: {
     fontFamily: type.kefa,
-    fontSize: size.h5
+    fontSize: size.h5,
   },
   title: {
     fontFamily: type.kefa,
-    fontSize: size.h3
+    fontSize: size.h3,
   },
   h1: {
     fontFamily: type.base,
-    fontSize: size.h1
+    fontSize: size.h1,
   },
   h2: {
-    fontWeight: 'bold',
-    fontSize: size.h2
+    fontWeight: "bold",
+    fontSize: size.h2,
   },
   h3: {
     fontFamily: type.base,
-    fontSize: size.h3
+    fontSize: size.h3,
   },
   h4: {
     fontFamily: type.base,
-    fontSize: size.h4
+    fontSize: size.h4,
   },
   h5: {
     fontFamily: type.base,
-    fontSize: size.h5
+    fontSize: size.h5,
   },
   h6: {
     fontFamily: type.bold,
-    fontSize: size.h6
+    fontSize: size.h6,
   },
   normalKefa: {
     fontFamily: type.kefa,
-    fontSize: size.regular
+    fontSize: size.regular,
   },
   bold: {
     fontFamily: type.bold,
-    fontSize: size.regular
+    fontSize: size.regular,
   },
   normal: {
     fontFamily: type.base,
-    fontSize: size.regular
+    fontSize: size.regular,
   },
   description: {
     fontFamily: type.base,
-    fontSize: size.medium
+    fontSize: size.medium,
   },
   heavyDescription: {
     ...Platform.select({
       android: {
-        fontFamily: 'sans-serif-medium'
+        fontFamily: "sans-serif-medium",
       },
       ios: {
-        fontWeight: '700'
-      }
+        fontWeight: "700",
+      },
     }),
-    fontSize: size.medium
+    fontSize: size.medium,
   },
   input: {
     fontFamily: type.base,
-    fontSize: size.input
+    fontSize: size.input,
   },
   footnote: {
     fontFamily: type.base,
-    fontSize: size.small
+    fontSize: size.small,
   },
   caption: {
     fontFamily: type.base,
-    fontSize: size.tiny
-  }
-}
+    fontSize: size.tiny,
+  },
+};
 
 export const Fonts = {
   type,
   size,
-  style
-}
+  style,
+};

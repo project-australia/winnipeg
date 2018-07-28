@@ -1,17 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { Router } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { Router } from "react-router-dom";
 import {
   setUpConfigs,
   history,
   createStore,
-  registerServiceWorker
-} from './config'
+  registerServiceWorker,
+} from "./config";
 
-import { App } from './modules/app'
+import { App } from "./modules/app";
 
-setUpConfigs()
+setUpConfigs();
 
 ReactDOM.render(
   <Provider store={createStore()}>
@@ -19,5 +19,6 @@ ReactDOM.render(
       <App />
     </Router>
   </Provider>,
-  document.getElementById('root'))
-registerServiceWorker()
+  document.getElementById("root"),
+);
+registerServiceWorker();

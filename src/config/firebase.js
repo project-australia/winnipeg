@@ -1,12 +1,12 @@
-import { initializeApp } from 'firebase'
+import { initializeApp } from "firebase";
 
 const ERROR = {
   duplicatedApp: {
-    code: 'app/duplicate-app',
+    code: "app/duplicate-app",
     message:
-      'Hot reload tried to initiate firebase again. Ignoring duplicated initialization'
-  }
-}
+      "Hot reload tried to initiate firebase again. Ignoring duplicated initialization",
+  },
+};
 
 const firebaseConfig = () => ({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -14,17 +14,17 @@ const firebaseConfig = () => ({
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MSG_SENDER_ID,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID
-})
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+});
 
 export const initializeFirebase = () => {
   try {
-    initializeApp(firebaseConfig())
+    initializeApp(firebaseConfig());
   } catch (error) {
     if (error.code === ERROR.duplicatedApp.code) {
-      console.info(ERROR.duplicatedApp.message)
+      console.info(ERROR.duplicatedApp.message);
     } else {
-      throw error
+      throw error;
     }
   }
-}
+};

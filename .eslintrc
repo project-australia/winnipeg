@@ -8,6 +8,7 @@
     "worker": true
   },
   "rules": {
+    "prettier/prettier": "error",
     "semi": [2, "never"],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
@@ -16,6 +17,5 @@
     "localStorage": true,
     "alert": true
   },
-  "extends": ["standard"],
-  "plugins": [ "flowtype", "react" ]
+  "plugins": [ "prettier", "react" ]
 }

@@ -1,7 +1,7 @@
-import _ from 'lodash'
+import _ from "lodash";
 
 export class User {
-  constructor (
+  constructor(
     id,
     referredBy,
     name,
@@ -15,40 +15,40 @@ export class User {
     address,
     wallet,
     orders,
-    network
+    network,
   ) {
-    this.id = id
-    this.referredBy = referredBy
-    this.name = _.capitalize(name)
-    this.email = email
-    this.birthDate = birthDate
-    this.telephone = telephone
-    this.school = school
-    this.referId = referId
-    this.club = club
-    this.role = role
-    this.address = address
-    this.wallet = wallet
-    this.orders = orders
-    this.network = network
+    this.id = id;
+    this.referredBy = referredBy;
+    this.name = _.capitalize(name);
+    this.email = email;
+    this.birthDate = birthDate;
+    this.telephone = telephone;
+    this.school = school;
+    this.referId = referId;
+    this.club = club;
+    this.role = role;
+    this.address = address;
+    this.wallet = wallet;
+    this.orders = orders;
+    this.network = network;
   }
 
-  id
-  referredBy
-  name
-  email
-  birthDate
-  telephone
-  school
-  referId
-  club
-  role
-  address
-  wallet
-  orders
-  network
+  id;
+  referredBy;
+  name;
+  email;
+  birthDate;
+  telephone;
+  school;
+  referId;
+  club;
+  role;
+  address;
+  wallet;
+  orders;
+  network;
 
-  isLoggedIn () {
-    return !!this.id
+  isLoggedIn() {
+    return !!this.id;
   }
 }

@@ -12,67 +12,46 @@
     "eject": "react-scripts eject",
     "lint:check": "eslint ./src/",
     "lint:fix": "eslint --fix ./src/",
-    "production": "http-server ./build/",
-    "precommit": "lint-staged"
+    "production": "http-server ./build/"
   },
   "dependencies": {
     "axios": "0.17.1",
     "data.maybe": "1.2.2",
     "dotenv": "6.0.0",
     "firebase": "4.6.2",
-    "lint-staged": "7.2.0",
     "lodash": "4.17.4",
     "moment": "2.21.0",
     "node-sass-chokidar": "0.0.3",
-    "qs": "6.5.1",
+    "prop-types": "15.6.0",
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-redux": "5.0.6",
-    "react-redux-toastr": "7.1.6",
     "react-router-dom": "4.2.2",
     "react-scripts": "1.1.4",
-    "react-slick": "^0.23.1",
+    "react-slick": "0.23.1",
     "recompose": "0.27.1",
     "redux": "3.7.2",
-    "redux-devtools-extension": "^2.13.2",
+    "redux-devtools-extension": "2.13.2",
     "redux-logger": "3.0.6",
-    "redux-multi": "0.1.12",
-    "redux-persist": "5.9.1",
     "redux-thunk": "2.2.0",
-    "reselect": "3.0.1",
-    "seamless-immutable": "7.1.2",
     "semantic-ui-css": "2.2.12",
     "semantic-ui-react": "0.77.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "1.8.1"
   },
   "devDependencies": {
     "babel-eslint": "8.0.2",
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.11.0",
-    "eslint-config-react": "1.1.7",
-    "eslint-config-standard": "10.2.1",
-    "eslint-plugin-flowtype": "2.39.1",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-node": "5.2.1",
-    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.5.1",
-    "eslint-plugin-standard": "3.0.1",
-    "husky": "0.14.3",
-    "jest-cli": "20.0.4",
+    "husky": "1.0.0-rc.13",
     "npm-run-all": "4.1.2",
-    "prop-types": "15.6.0",
-    "react-test-renderer": "16.2.0",
-    "redux-mock-store": "1.4.0",
-    "redux-testkit": "1.0.6",
-    "standard": "10.0.3"
+    "prettier": "1.13.5",
+    "prettierrc": "0.0.0-5",
+    "pretty-quick": "1.6.0"
   },
-  "lint-staged": {
-    "linters": {
-      "*.{js,jsx}": [
-        "eslint --fix ",
-        "git add"
-      ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
