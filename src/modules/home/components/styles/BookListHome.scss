@@ -1,19 +1,26 @@
+@import '../../../styles/app.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
 .blh-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-top: $kilo;
+  padding-bottom: 28px;
 }
+
 .blh-title-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 15px;
-
   .title {
-    font-size: 20px;
+    font-size: $h6;
+    color: $blackSecondaryAlt;
   }
 }
-.blh-book-list  {
+
+.blh-book-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

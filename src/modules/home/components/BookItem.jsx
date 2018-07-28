@@ -8,7 +8,7 @@ import { history } from '../../../config/historyRouter'
 import './styles/BookItem.css'
 
 const navigateToBookDetail = (book, type) => history.push({
-  pathname: ROUTES.BOOKDETAIL,
+  pathname: ROUTES.BOOKDETAILS,
   state: { book, type }
 })
 

@@ -6,7 +6,7 @@ import { ROUTES } from '../../router'
 
 import './styles/SearchBooksToBuy.css'
 
-class SearchBooksToBuyContainer extends Component {
+export class SearchBooksToBuy extends Component {
   state = {
     searchInput: ''
   }
@@ -37,5 +37,3 @@ class SearchBooksToBuyContainer extends Component {
     )
   }
 }
-
-export const SearchBooksToBuy = SearchBooksToBuyContainer

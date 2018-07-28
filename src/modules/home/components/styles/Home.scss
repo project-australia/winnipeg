@@ -2,8 +2,9 @@
 @import '../../../styles/colors.scss';
 
 .home-wrapper {
-  margin-top: $navWithSearchBarHeight;
-  padding-top: $kilo;
+  //margin-top: $navWithSearchBarHeight;
+  //padding-top: $kilo;
+  // FIXME: ISso tava causando um problema nas outras telas que nao eram a Home
 }
 
 .home-selling-section {
