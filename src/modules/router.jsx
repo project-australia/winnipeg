@@ -7,17 +7,16 @@ import { BookListScreen } from './bookList/containers/BookListScreen'
 import { HomeScreen } from './home/containers/HomeScreen'
 import { BookDetailsScreen } from './book/containers/BookDetailsScreen'
 import {
-  withAuthentication,
-  withAuthListener
+  withAuthentication
 } from './shared/highOrderComponents/authenticationHOC'
-import { TestComponent } from './test/test'
+import { ProfileScreen } from './profile/containers/ProfileScreen'
 
 export const ROUTES = {
   HOME: '/',
   SIGN_IN: '/sign_in',
   SIGN_UP: '/sign_up',
   FORGOT_PASSWORD: '/forgot_password',
-  TEST: '/test_route',
+  PROFILE: '/profile',
   BOOKLIST: '/booklist',
   BOOKDETAIL: '/book-detail'
 }
@@ -27,9 +26,9 @@ export const Router = () => (
     <Route exact path={ROUTES.HOME} component={HomeScreen} />
     <Route path={ROUTES.BOOKLIST} component={BookListScreen} />
     <Route path={ROUTES.BOOKDETAIL} component={BookDetailsScreen} />
-    <Route path={ROUTES.TEST} component={withAuthentication(TestComponent)} />
-    <Route path={ROUTES.SIGN_IN} component={withAuthListener(SignInScreen)} />
-    <Route path={ROUTES.SIGN_UP} component={withAuthListener(SignUpScreen)} />
+    <Route path={ROUTES.PROFILE} component={withAuthentication(ProfileScreen)} />
+    <Route path={ROUTES.SIGN_IN} component={SignInScreen} />
+    <Route path={ROUTES.SIGN_UP} component={SignUpScreen} />
     <Route path={ROUTES.FORGOT_PASSWORD} component={ForgotPasswordScreen} />
   </Switch>
 )

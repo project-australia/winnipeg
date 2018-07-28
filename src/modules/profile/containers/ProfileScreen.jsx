@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { logOutAction } from '../../redux/actions/async'
-import { userSelector } from '../../redux/selectors/authenticationSelectors'
-import { UserPropTypes } from '../authentication/propTypes/user.type'
+import { logOutAction } from '../../../redux/actions/async/index'
+import { userSelector } from '../../../redux/selectors/authenticationSelectors'
+import { UserPropTypes } from '../../authentication/propTypes/user.type'
 
-class Test extends Component {
+class Profile extends Component {
   static propTypes = {
     user: UserPropTypes
   }
@@ -26,4 +26,4 @@ const mapDispatchToProps = {
   logOut: logOutAction
 }
 
-export const TestComponent = connect(mapStateToProps, mapDispatchToProps)(Test)
+export const ProfileScreen = connect(mapStateToProps, mapDispatchToProps)(Profile)

@@ -7,6 +7,7 @@ import { Router } from './router'
 import { Footer } from './shared/components/layout/Footer'
 import { HeaderContainer } from './shared/containers/HeaderContainer'
 import './styles/app.css'
+import { withAuthListener } from './shared/highOrderComponents/authenticationHOC'
 
 class AppContainer extends Component {
   render () {
@@ -19,4 +20,4 @@ class AppContainer extends Component {
     )
   }
 }
-export const App = AppContainer
+export const App = withAuthListener(AppContainer)
