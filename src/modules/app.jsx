@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'semantic-ui-css/semantic.min.css'
 import { Router } from './router'
 import { Footer } from './shared/components/layout/Footer'
-import { HeaderContainer } from './shared/containers/HeaderContainer'
+import { Header } from './shared/containers/Header'
 import './styles/app.css'
 import { withAuthListener } from './shared/highOrderComponents/authenticationHOC'
 
@@ -13,7 +13,7 @@ class AppContainer extends Component {
   render () {
     return (
       <React.Fragment>
-        <HeaderContainer />
+        <Header />
         <Router />
         <Footer />
       </React.Fragment>

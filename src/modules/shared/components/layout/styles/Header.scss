@@ -2,6 +2,10 @@
 @import '../../../../styles/mediaQueries.scss';
 @import '../../../../styles/app.scss';
 
+.navBar {
+  margin: 0 !important;
+}
+
 .navBar:not(.expanded) {
   height: $navBarHeight;
 }

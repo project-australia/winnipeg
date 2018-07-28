@@ -29,7 +29,7 @@ const LOGGED_OUT_MENU_ITEMS = [
   }
 ]
 
-export class Header extends Component {
+export class HeaderComponent extends Component {
   static propTypes = {
     isLoggedIn: bool
   }

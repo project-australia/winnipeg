@@ -6,7 +6,9 @@
   display: flex;
   flex-direction: column;
   margin-top: $kilo;
+  padding-bottom: 28px;
 }
+
 .blh-title-box {
   display: flex;
   flex-direction: row;
@@ -17,7 +19,8 @@
     color: $blackSecondaryAlt;
   }
 }
-.blh-book-list  {
+
+.blh-book-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

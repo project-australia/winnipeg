@@ -9,6 +9,8 @@ import { ROUTES } from '../../router'
 import { bookProptype } from '../propTypes/book.type'
 
 import './styles/BookListHome.css'
+import './styles/SlickOverride.css'
+
 import { Values } from '../../../constants/values'
 
 export class BookListHomeContainer extends Component {

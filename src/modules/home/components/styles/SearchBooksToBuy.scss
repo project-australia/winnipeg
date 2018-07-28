@@ -3,8 +3,9 @@
 @import '../../../styles/typography.scss';
 
 .sbtb_input {
-  position: fixed !important;
-  top: $navBarHeight;
+  // TODO: Isso tava quebrando as screen que nao eram a home
+  //position: fixed !important;
+  //top: $navBarHeight;
   left: 0;
   right: 0;
   z-index: 101;
