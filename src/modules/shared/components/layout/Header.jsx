@@ -7,6 +7,28 @@ import ballardLogo from '../../../../assets/images/ballard-logo-horizontal.svg'
 
 import './styles/Header.css'
 
+const LOGGED_IN_MENU_ITEMS = [
+  {
+    route: ROUTES.SHOPPING_CART,
+    child: <Icon className="cartIcon" name="cart" size="large" />
+  },
+  {
+    route: ROUTES.PROFILE,
+    child: 'PROFILE'
+  }
+]
+
+const LOGGED_OUT_MENU_ITEMS = [
+  {
+    route: ROUTES.SIGN_IN,
+    child: 'SIGN IN'
+  },
+  {
+    route: ROUTES.SIGN_UP,
+    child: 'SIGN UP'
+  }
+]
+
 export class Header extends Component {
   static propTypes = {
     isLoggedIn: bool
@@ -27,27 +49,7 @@ export class Header extends Component {
   )
 
   renderMenu = () => {
-    const menuToRender = this.props.isLoggedIn
-      ? [
-        {
-          route: ROUTES.SHOPPING_CART,
-          child: <Icon className="cartIcon" name="cart" size="large" />
-        },
-        {
-          route: ROUTES.PROFILE,
-          child: 'PROFILE'
-        }
-      ]
-      : [
-        {
-          route: ROUTES.SIGN_IN,
-          child: 'SIGN IN'
-        },
-        {
-          route: ROUTES.SIGN_UP,
-          child: 'SIGN UP'
-        }
-      ]
+    const menuToRender = this.props.isLoggedIn ? LOGGED_IN_MENU_ITEMS : LOGGED_OUT_MENU_ITEMS
     const generateMenuClass = this.state.isMobileMenuVisible ? 'stackable-menu active' : 'stackable-menu'
     return (
       <Menu.Menu className={generateMenuClass} position="right">
@@ -69,7 +71,7 @@ export class Header extends Component {
       ? ['navBar expanded', 'close']
       : ['navBar', 'bars']
     return (
-      <Menu className={navBarClass} padded="true" fixed="top" stackable>
+      <Menu className={navBarClass} padded="true" stackable>
         <Menu.Header>
           <Link to={ROUTES.HOME}><img className="appLogo" src={ballardLogo} height={46} alt="logo" /></Link>
         </Menu.Header>
