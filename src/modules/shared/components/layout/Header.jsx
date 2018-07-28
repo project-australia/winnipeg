@@ -60,7 +60,7 @@ export class Header extends Component {
 
   generateMenuItem = (route, child) => {
     return (
-      <Menu.Item key={route} href={ROUTES[route]}>
+      <Menu.Item key={route} href={route}>
         {child}
       </Menu.Item>
     )
@@ -72,8 +72,11 @@ export class Header extends Component {
       : ['navBar', 'bars']
     return (
       <Menu className={navBarClass} padded="true" stackable>
+        {/* TODO: Esse link nao ta funcionando */}
         <Menu.Header>
-          <Link to={ROUTES.HOME}><img className="appLogo" src={ballardLogo} height={46} alt="logo" /></Link>
+          <Link to={ROUTES.HOME}>
+            <img className="appLogo" src={ballardLogo} height={46} alt="logo" />
+          </Link>
         </Menu.Header>
         {this.renderMenu()}
         <a className="mobileMenuIcon" onClick={this.toggleMenuVisibility}>

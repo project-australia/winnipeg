@@ -7,6 +7,7 @@ import { SearchBooksToBuy } from './SearchBooksToBuy'
 import { SellingBooksSection } from './SellingBooksSection'
 
 import './styles/Home.css'
+
 class HomeContainer extends Component {
   render () {
     return (
