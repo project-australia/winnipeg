@@ -18,14 +18,14 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot_password',
   PROFILE: '/profile',
   BOOKLIST: '/booklist',
-  BOOKDETAIL: '/book-detail'
+  BOOKDETAILS: '/book-details'
 }
 
 export const Router = () => (
   <Switch>
     <Route exact path={ROUTES.HOME} component={HomeScreen} />
     <Route path={ROUTES.BOOKLIST} component={BookListScreen} />
-    <Route path={ROUTES.BOOKDETAIL} component={BookDetailsScreen} />
+    <Route path={ROUTES.BOOKDETAILS} component={BookDetailsScreen} />
     <Route path={ROUTES.PROFILE} component={withAuthentication(ProfileScreen)} />
     <Route path={ROUTES.SIGN_IN} component={SignInScreen} />
     <Route path={ROUTES.SIGN_UP} component={SignUpScreen} />
