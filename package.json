@@ -15,8 +15,7 @@
     "production": "http-server ./build/"
   },
   "dependencies": {
-    "axios": "^0.17.1",
-    "axios-debug-log": "^0.4.0",
+    "axios": "0.17.1",
     "data.maybe": "1.2.2",
     "dotenv": "6.0.0",
     "firebase": "4.6.2",
