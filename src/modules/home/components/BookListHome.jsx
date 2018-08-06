@@ -44,6 +44,7 @@ export class BookListHomeContainer extends Component {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            centerMode: true,
           },
         },
       ],
