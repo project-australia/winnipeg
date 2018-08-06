@@ -14,7 +14,6 @@ const navigateToBookDetail = (book, type) =>
   });
 
 const BookItem = ({ book }) => {
-  console.log(book);
   return (
     <div className="bi-wrapper">
       <Image src={book.images.medium} />
