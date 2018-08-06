@@ -1,5 +1,44 @@
+@import '../../../styles/app.scss';
+@import '../../../styles/colors.scss';
+
 .bi-wrapper {
-  background-color: yellowgreen;
-  width: 190px;
-  height: 100px;
+  display: flex;
+  flex-direction: row;
+  .image {
+    height: 100px;
+    width: 75px;
+    object-fit: cover;
+    margin-right: $byte;
+    background-color: $blackDisabledAlt2;
+  }
+  .bi-title {
+    color: $blackPrimary;
+    margin-bottom: $milli;
+  }
+  .bi-description {
+    color: $blackSecondary;
+    margin-bottom: $milli;
+  }
+  .button {
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+      & > p {
+        color: $blackPrimaryAltHover;
+        &:first-child {
+          color: $blackSecondaryAltHover;
+        }
+      }
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    & > p {
+      margin: 0;
+      color: $blackPrimaryAlt;
+      &:first-child {
+        color: $blackSecondaryAlt;
+      }
+    }
+  }
 }

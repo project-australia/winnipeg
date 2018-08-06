@@ -1,28 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import ContainerCentered from '../../shared/components/grid/ContainerCentered'
-import { BookListHome } from './BookListHome'
-import { Books } from '../../../data/BooksList'
-import { SearchBooksToBuy } from './SearchBooksToBuy'
-import { SellingBooksSection } from './SellingBooksSection'
+import ContainerCentered from "../../shared/components/grid/ContainerCentered";
+import ContainerPadded from "../../shared/components/grid/ContainerPadded";
+import { BookListHome } from "./BookListHome";
+import { Books } from "../../../data/BooksList";
+import { SearchBooksToBuy } from "./SearchBooksToBuy";
+import { SellingBooksSection } from "./SellingBooksSection";
 
-import './styles/Home.css'
+import "./styles/Home.css";
 
 class HomeContainer extends Component {
-  render () {
+  render() {
     return (
       <div className="home-wrapper">
         <SearchBooksToBuy />
-        <ContainerCentered className='home-selling-section'>
+        <ContainerCentered className="home-selling-section">
           <SellingBooksSection />
         </ContainerCentered>
-        <ContainerCentered className='home-container-wrapper'>
-          <BookListHome title={'Featured'} books={Books} />
-          <BookListHome title={'Recently Added'} books={Books} />
-        </ContainerCentered>
+        <ContainerPadded className="home-container-wrapper">
+          <BookListHome title={"Featured"} books={Books} />
+          <BookListHome title={"Recently Added"} books={Books} />
+        </ContainerPadded>
       </div>
-    )
+    );
   }
 }
 
-export const Home = HomeContainer
+export const Home = HomeContainer;

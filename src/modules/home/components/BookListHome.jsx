@@ -18,38 +18,36 @@ export class BookListHomeContainer extends Component {
     screenWidth: window.innerWidth,
   };
 
-  componentDidMount = () => {
-    window.addEventListener("resize", this.updateWindowDimensions);
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", true);
-  };
-
   updateWindowDimensions = ({ currentTarget }) =>
     this.setState({ screenWidth: currentTarget.innerWidth });
 
-  setSlidesCount = () => {
-    const { screenWidth } = this.state;
-    const { phoneLandscape, tablet } = Values.mediaQueries;
-    if (screenWidth >= tablet) {
-      return 4;
-    }
-    if (screenWidth >= phoneLandscape) {
-      return 2;
-    }
-    return 1;
-  };
-
   render() {
     const { title, books } = this.props;
-    const slidesCount = this.setSlidesCount();
+    const { phoneLandscape, tablet } = Values.mediaQueries;
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: slidesCount,
-      slidesToScroll: slidesCount,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: tablet,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: phoneLandscape,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+          },
+        },
+      ],
     };
     return (
       <div className="blh-wrapper">
@@ -66,11 +64,9 @@ export class BookListHomeContainer extends Component {
             </Link>
           </span>
         </div>
-        {/* <div className='blh-book-list'> */}
         <Slider {...settings}>
           {books.map(book => <BookItem key={book.id} book={book} />)}
         </Slider>
-        {/* </div> */}
       </div>
     );
   }
