@@ -1,28 +1,20 @@
-$c1: #3a8999;
-$c2: #e84a69;
-
 .slider {
   width: auto;
   margin: 30px 50px 50px;
 }
 
 .slick-slide {
-  background: $c1;
-  color: white;
-  padding: 40px 0;
-  font-size: 30px;
-  text-align: center;
+  padding: 16px;
 }
 
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  color: rgba(0, 0, 0, 0.87);
+  &:hover {
+    color: black;
+  }
 }
 
 .slick-dots {
   bottom: -30px;
-}
-
-.slick-slide:nth-child(odd) {
-  background: $c2;
 }
