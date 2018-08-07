@@ -17,7 +17,6 @@
   "dependencies": {
     "axios": "0.17.1",
     "data.maybe": "1.2.2",
-    "dotenv": "6.0.0",
     "firebase": "4.6.2",
     "lodash": "4.17.4",
     "moment": "2.21.0",
